@@ -107,7 +107,7 @@ msgs_html = '&lt;div&gt;'
 
   if has_parent
     # determine the parent message timestamp
-    if tz.nil?
+    if tz.to_s.empty?
       created_at = "${appearance('#{parent['createdAt']} ${format('Month DD, YYYY (no time)')}')}"
     else
       t = ::TZInfo::Timezone.get(tz).to_local(Time.parse(parent['createdAt']))
