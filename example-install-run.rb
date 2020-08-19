@@ -28,7 +28,7 @@ data = {
      "api_v2" => "#{server}/app/components/task/app/api/v2",
      "component_type" => "task",
      "server" => "#{server}/app/components/task",
-     "space_slug" => "space_slug",
+     "space_slug" => space_slug,
      "signature_secret" => "1234asdf5678jkl;"
    },
    "discussions" => {
