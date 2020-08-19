@@ -145,8 +145,8 @@ if space.has_key?("platformComponents")
   if space["platformComponents"].has_key?("task")
     space["platformComponents"].delete("task")
   end
-  (space["platformComponents"]["agents"] || []).each do |agent|
-    space["platformComponents"]["agents"]["url"] = ""
+  (space["platformComponents"]["agents"] || []).each_with_index do |agent,idx|
+    space["platformComponents"]["agents"][idx]["url"] = ""
   end
 end
 # rewrite the space file
