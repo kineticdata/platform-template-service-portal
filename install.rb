@@ -233,7 +233,11 @@ space_attributes_map = space_attributes_map.merge(vars_space_attributes_map)
 
 # update the space properties
 #   set required space attributes
-space_sdk.update_space({ "attributesMap" => space_attributes_map })
+#   set space name from vars
+space_sdk.update_space({
+  "attributesMap" => space_attributes_map,
+  "name" => vars["core"]["space_name"],
+})
 
 # import kapp & datastore submissions
 Dir["#{core_path}/**/*.ndjson"].sort.each do |filename|
