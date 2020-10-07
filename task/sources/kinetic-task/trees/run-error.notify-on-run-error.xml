@@ -29,8 +29,10 @@
                 <deferrable>false</deferrable>
                 <visible>true</visible>
                 <parameters>
-                    <parameter dependsOnId="" dependsOnValue="" id="from" label="From (email address)" menu="" required="true" tooltip="The email address of the simulated sender.">&lt;%=@results['Configure From Email Address']['output']%&gt;</parameter>
-                    <parameter dependsOnId="" dependsOnValue="" id="to" label="To (email address)" menu="" required="true" tooltip="The email address of the intended recipient.">&lt;%=@error['tree']['Owner Email']%&gt;</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="error_handling" label="Error Handling" menu="Error Message,Raise Error" required="true" tooltip="Determine what to return if an error is encountered.">Error Message</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="from" label="From (Email Address)" menu="" required="true" tooltip="The email address of the simulated sender.">&lt;%=@results['Configure From Email Address']['output']%&gt;</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="to" label="To (Email Address)" menu="" required="true" tooltip="The email address of the intended recipient.">&lt;%=@error['tree']['Owner Email']%&gt;</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="bcc" label="Bcc (Email Address)" menu="" required="false" tooltip="The email address of the intended recipient."></parameter>
                     <parameter dependsOnId="" dependsOnValue="" id="subject" label="Subject" menu="" required="false" tooltip="The subject of the email.">Kinetic Task Run Error (&lt;%= @results['Configure Space Slug']['output'] %&gt;)</parameter>
                     <parameter dependsOnId="" dependsOnValue="" id="htmlbody" label="HTML Body" menu="" required="false" tooltip="HTML representing the body of a rich email.">&lt;h1&gt;Run Error in Space's task engine (&lt;%= @results['Configure Space Slug']['output'] %&gt;)&lt;/h1&gt;
             &lt;h2&gt;Source Information&lt;/h2&gt;
@@ -39,7 +41,7 @@
             &lt;li&gt;Source Group: &lt;%=@error['tree']['Source Group']%&gt;&lt;/li&gt;
             &lt;li&gt;Source Id: &lt;%=@error['run']['Source Id']%&gt;&lt;/li&gt;
             &lt;li&gt;Tree Name: &lt;%=@error['tree']['Name']%&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="&lt;%=@results['Configure Web Server']['output']%&gt;/app/#/workflow/runs/errors/&lt;%=@error['run']['Id']%&gt;"&gt;Run #&lt;%=@error['run']['Id']%&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="&lt;%=@results['Configure Web Server']['output']%&gt;/app/#/space/workflow/runs/errors/&lt;%=@error['run']['Id']%&gt;"&gt;Run #&lt;%=@error['run']['Id']%&gt;&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
             
             &lt;h2&gt;Error Details&lt;/h2&gt;
@@ -57,9 +59,7 @@
             &lt;%=@error['Text']%&gt;
             </parameter>
                 </parameters>
-                <messages>
-                    <message type="Complete"></message>
-                </messages>
+                <messages></messages>
                 <dependents></dependents>
             </task>
             <task definition_id="smtp_email_send_v1" id="smtp_email_send_v1_2" name="Notify System Owner" x="266" y="466">
@@ -69,8 +69,10 @@
                 <deferrable>false</deferrable>
                 <visible>true</visible>
                 <parameters>
-                    <parameter dependsOnId="" dependsOnValue="" id="from" label="From (email address)" menu="" required="true" tooltip="The email address of the simulated sender.">&lt;%=@results['Configure From Email Address']['output']%&gt;</parameter>
-                    <parameter dependsOnId="" dependsOnValue="" id="to" label="To (email address)" menu="" required="true" tooltip="The email address of the intended recipient.">&lt;%=@results['Configure System Owner Email Address']['output']%&gt;</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="error_handling" label="Error Handling" menu="Error Message,Raise Error" required="true" tooltip="Determine what to return if an error is encountered.">Error Message</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="from" label="From (Email Address)" menu="" required="true" tooltip="The email address of the simulated sender.">&lt;%=@results['Configure From Email Address']['output']%&gt;</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="to" label="To (Email Address)" menu="" required="true" tooltip="The email address of the intended recipient.">&lt;%=@results['Configure System Owner Email Address']['output']%&gt;</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="bcc" label="Bcc (Email Address)" menu="" required="false" tooltip="The email address of the intended recipient."></parameter>
                     <parameter dependsOnId="" dependsOnValue="" id="subject" label="Subject" menu="" required="false" tooltip="The subject of the email.">Kinetic Task Run Error (&lt;%= @results['Configure Space Slug']['output'] %&gt;)</parameter>
                     <parameter dependsOnId="" dependsOnValue="" id="htmlbody" label="HTML Body" menu="" required="false" tooltip="HTML representing the body of a rich email.">&lt;h1&gt;Run Error in Space's task engine (&lt;%= @results['Configure Space Slug']['output'] %&gt;)&lt;/h1&gt;
             &lt;h2&gt;Source Information&lt;/h2&gt;
@@ -79,7 +81,7 @@
             &lt;li&gt;Source Group: &lt;%=@error['tree']['Source Group']%&gt;&lt;/li&gt;
             &lt;li&gt;Source Id: &lt;%=@error['run']['Source Id']%&gt;&lt;/li&gt;
             &lt;li&gt;Tree Name: &lt;%=@error['tree']['Name']%&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="&lt;%=@results['Configure Web Server']['output']%&gt;/app/#/workflow/runs/errors/&lt;%=@error['run']['Id']%&gt;"&gt;Run #&lt;%=@error['run']['Id']%&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="&lt;%=@results['Configure Web Server']['output']%&gt;/app/#/space/workflow/runs/errors/&lt;%=@error['run']['Id']%&gt;"&gt;Run #&lt;%=@error['run']['Id']%&gt;&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
             
             &lt;h2&gt;Error Details&lt;/h2&gt;
@@ -97,9 +99,7 @@
             &lt;%=@error['Text']%&gt;
             </parameter>
                 </parameters>
-                <messages>
-                    <message type="Complete"></message>
-                </messages>
+                <messages></messages>
                 <dependents></dependents>
             </task>
             <task definition_id="utilities_echo_v1" id="utilities_echo_v1_4" name="Configure From Email Address" x="518" y="-97">
@@ -123,12 +123,9 @@
                 <deferrable>false</deferrable>
                 <visible>true</visible>
                 <parameters>
-                    <parameter dependsOnId="" dependsOnValue="" id="input" label="Input" menu="" required="true" tooltip="">&lt;%=
-JSON.parse(@results['Retrieve Space Admins']['Response Body'])['users'].select {|user| user['email'] &amp;&amp; !user['email'].to_s.empty? &amp;&amp; !user["email"].include?("@kinops.io")}.map { |user| user["email"]  }.join(',')%&gt;</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="input" label="Input" menu="" required="true" tooltip="">&lt;%=JSON.parse(@results['Retrieve Space Admins']['Response Body'])['users'].select {|user| user['email'] &amp;&amp; !user["email"].include?("@kinops.io")}.map { |user| user["email"]  }.join(',')%&gt;</parameter>
                 </parameters>
-                <messages>
-                    <message type="Complete"></message>
-                </messages>
+                <messages></messages>
                 <dependents>
                     <task label="" type="Complete" value="">utilities_echo_v1_19</task>
                 </dependents>
