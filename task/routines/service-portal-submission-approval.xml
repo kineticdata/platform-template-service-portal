@@ -86,7 +86,7 @@ attributes = JSON.parse(@results['Retrieve Created By User']['Attributes Map JSO
 if(attributes.has_key?('Manager') &amp;&amp; !attributes['Manager'].empty?)
   output = attributes['Manager'][0]
 end
-outupt%&gt;</parameter>
+output%&gt;</parameter>
                 </parameters>
                 <messages>
                     <message type="Complete"></message>
