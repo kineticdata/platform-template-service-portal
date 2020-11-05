@@ -125,6 +125,14 @@
         "values[Type]"
       ],
       "unique": false
+    },
+    {
+      "name": "values[Type],values[Name]",
+      "parts": [
+        "values[Type]",
+        "values[Name]"
+      ],
+      "unique": false
     }
   ],
   "name": "Notification Data",
