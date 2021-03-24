@@ -1,4 +1,5 @@
 {
+  "anonymous": false,
   "attributes": [
     {
       "name": "Datastore Hidden",
@@ -7,16 +8,15 @@
       ]
     }
   ],
-  "bridgedResources": [
-
-  ],
+  "bridgedResources": [],
+  "categorizations": [],
   "customHeadContent": null,
   "description": "System Alert notifications.",
   "indexDefinitions": [
     {
-      "name": "createdAt",
+      "name": "closedBy",
       "parts": [
-        "createdAt"
+        "closedBy"
       ],
       "unique": false
     },
@@ -35,23 +35,9 @@
       "unique": false
     },
     {
-      "name": "submittedAt",
-      "parts": [
-        "submittedAt"
-      ],
-      "unique": false
-    },
-    {
       "name": "submittedBy",
       "parts": [
         "submittedBy"
-      ],
-      "unique": false
-    },
-    {
-      "name": "updatedAt",
-      "parts": [
-        "updatedAt"
       ],
       "unique": false
     },
@@ -126,14 +112,9 @@
           "requiredMessage": null,
           "omitWhenHidden": null,
           "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
+          "constraints": [],
+          "events": [],
+          "renderAttributes": {},
           "dataType": "string",
           "renderType": "radio",
           "choicesResourceName": null,
@@ -162,14 +143,9 @@
           "requiredMessage": null,
           "omitWhenHidden": null,
           "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
+          "constraints": [],
+          "events": [],
+          "renderAttributes": {},
           "dataType": "string",
           "renderType": "text",
           "rows": 1
@@ -187,14 +163,9 @@
           "requiredMessage": null,
           "omitWhenHidden": null,
           "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
+          "constraints": [],
+          "events": [],
+          "renderAttributes": {},
           "dataType": "string",
           "renderType": "text",
           "rows": 3
@@ -212,14 +183,9 @@
           "requiredMessage": null,
           "omitWhenHidden": null,
           "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
+          "constraints": [],
+          "events": [],
+          "renderAttributes": {},
           "dataType": "string",
           "renderType": "datetime"
         },
@@ -236,14 +202,9 @@
           "requiredMessage": null,
           "omitWhenHidden": null,
           "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
+          "constraints": [],
+          "events": [],
+          "renderAttributes": {},
           "dataType": "string",
           "renderType": "text",
           "rows": 1
@@ -255,8 +216,7 @@
           "visible": true,
           "enabled": true,
           "renderType": "submit-page",
-          "renderAttributes": {
-          }
+          "renderAttributes": {}
         },
         {
           "type": "section",
@@ -265,8 +225,7 @@
           "title": null,
           "visible": false,
           "omitWhenHidden": false,
-          "renderAttributes": {
-          },
+          "renderAttributes": {},
           "elements": [
             {
               "type": "field",
@@ -281,14 +240,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "dropdown",
               "choicesResourceName": null,
@@ -307,9 +261,7 @@
           ]
         }
       ],
-      "events": [
-
-      ],
+      "events": [],
       "name": "Alerts",
       "renderType": "submittable",
       "type": "page"
@@ -335,5 +287,6 @@
   ],
   "slug": "alerts",
   "status": "Active",
-  "submissionLabelExpression": "${values('Title')}"
+  "submissionLabelExpression": "${values('Title')}",
+  "type": null
 }

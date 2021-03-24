@@ -69,8 +69,8 @@ end
 
 # Configuration of which submissions should be exported
 SUBMISSIONS_TO_EXPORT = [
-  {"datastore" => true, "formSlug" => "notification-data"},
-  {"datastore" => true, "formSlug" => "notification-template-dates"}
+  {"kappSlug" => "datastore", "formSlug" => "notification-data"},
+  {"kappSlug" => "datastore", "formSlug" => "notification-template-dates"}
 ]
 
 REMOVE_DATA_PROPERTIES = [
@@ -161,12 +161,9 @@ end
 # export submissions
 logger.info "  - exporting and writing submission data"
 SUBMISSIONS_TO_EXPORT.each do |item|
-  is_datastore = item["datastore"] || false
-  logger.info "    - #{is_datastore ? 'datastore' : 'kapp'} form #{item['formSlug']}"
+  logger.info "    - kapp [#{item["kappSlug"]}] form [#{item['formSlug']}]"
   # build directory to write files to
-  submission_path = is_datastore ?
-    "#{core_path}/space/datastore/forms/#{item['formSlug']}" :
-    "#{core_path}/kapps/#{item['kappSlug']}/forms/#{item['formSlug']}"
+  submission_path = "#{core_path}/space/kapps/#{item['kappSlug']}/forms/#{item['formSlug']}"
 
   # create folder to write submission data to
   FileUtils.mkdir_p(submission_path, :mode => 0700)
@@ -182,9 +179,7 @@ SUBMISSIONS_TO_EXPORT.each do |item|
   response = nil
   begin
     # get submissions
-    response = is_datastore ?
-      space_sdk.find_all_form_datastore_submissions(item['formSlug'], params).content :
-      space_sdk.find_form_submissions(item['kappSlug'], item['formSlug'], params).content
+    response = space_sdk.find_form_submissions(item['kappSlug'], item['formSlug'], params).content
     if response.has_key?("submissions")
       # write each submission on its own line
       (response["submissions"] || []).each do |submission|
