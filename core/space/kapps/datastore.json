@@ -1,16 +1,25 @@
 {
   "afterLogoutPath": null,
-  "attributes": [],
-  "bundlePath": "webpack",
-  "defaultFormConfirmationPage": "space.jsp",
-  "defaultFormDisplayPage": "space.jsp",
-  "defaultSubmissionLabelExpression": "${form('name')}",
+  "attributes": [
+
+  ],
+  "bundlePath": null,
+  "defaultFormConfirmationPage": null,
+  "defaultFormDisplayPage": null,
+  "defaultSubmissionLabelExpression": null,
   "displayType": "Display Page",
-  "displayValue": "space.jsp",
-  "fields": [],
-  "loginPage": "",
+  "displayValue": null,
+  "fields": [
+
+  ],
+  "indexDefinitions": [
+
+  ],
+  "loginPage": null,
   "name": "Datastore",
-  "resetPasswordPage": "",
-  "securityPolicies": [],
+  "resetPasswordPage": null,
+  "securityPolicies": [
+
+  ],
   "slug": "datastore"
 }

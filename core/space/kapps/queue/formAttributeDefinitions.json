@@ -1,12 +1,12 @@
 [
   {
     "allowsMultiple": false,
-    "description": "'False' or 'No' means that this form cannot be reassigned to a different team. Defaults to Yes.",
+    "description": "If the queue task is allowed to be reassigned to other teams.",
     "name": "Allow Reassignment"
   },
   {
     "allowsMultiple": true,
-    "description": "The teams to which this form can be assigned. If not set, it can be assigned to all teams.",
+    "description": "Teams that can be assigned work for this queue task.",
     "name": "Assignable Teams"
   },
   {

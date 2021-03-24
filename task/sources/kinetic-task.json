@@ -4,5 +4,8 @@
   "type": "Kinetic Task",
   "policyRules": [
 
-  ]
+  ],
+  "properties": {
+
+  }
 }

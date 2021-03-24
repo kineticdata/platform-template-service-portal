@@ -40,6 +40,235 @@
   ],
   "customHeadContent": null,
   "description": "Can't find what you're looking for? Request a new service from your kinops Administrator",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,createdBy",
+      "parts": [
+        "type",
+        "coreState",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,submittedBy",
+      "parts": [
+        "type",
+        "coreState",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,values[Requested By]",
+      "parts": [
+        "type",
+        "coreState",
+        "values[Requested By]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,values[Requested For]",
+      "parts": [
+        "type",
+        "coreState",
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,createdBy",
+      "parts": [
+        "type",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,submittedBy",
+      "parts": [
+        "type",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,values[Requested By]",
+      "parts": [
+        "type",
+        "values[Requested By]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,values[Requested For]",
+      "parts": [
+        "type",
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Description of Service]",
+      "parts": [
+        "values[Description of Service]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Discussion Id]",
+      "parts": [
+        "values[Discussion Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Name of Service to Add]",
+      "parts": [
+        "values[Name of Service to Add]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Individuals]",
+      "parts": [
+        "values[Observing Individuals]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Teams]",
+      "parts": [
+        "values[Observing Teams]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By Display Name]",
+      "parts": [
+        "values[Requested By Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By]",
+      "parts": [
+        "values[Requested By]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By],values[Requested For]",
+      "parts": [
+        "values[Requested By]",
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For Display Name]",
+      "parts": [
+        "values[Requested For Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For]",
+      "parts": [
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Search Category]",
+      "parts": [
+        "values[Search Category]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Search Parameter]",
+      "parts": [
+        "values[Search Parameter]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status]",
+      "parts": [
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],createdBy",
+      "parts": [
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],submittedBy",
+      "parts": [
+        "values[Status]",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],values[Requested By]",
+      "parts": [
+        "values[Status]",
+        "values[Requested By]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],values[Requested For]",
+      "parts": [
+        "values[Status]",
+        "values[Requested For]"
+      ],
+      "unique": false
+    }
+  ],
   "name": "kinops Suggest a Service",
   "notes": null,
   "pages": [
@@ -56,6 +285,7 @@
           "visible": true,
           "omitWhenHidden": null,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -78,6 +308,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -103,6 +334,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -129,6 +361,7 @@
               "enabled": true,
               "renderType": "submit-page",
               "renderAttributes": {
+
               }
             }
           ]
@@ -141,6 +374,7 @@
           "visible": false,
           "omitWhenHidden": false,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -163,6 +397,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -188,6 +423,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -213,6 +449,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -238,6 +475,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -263,6 +501,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -288,6 +527,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -317,6 +557,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -346,6 +587,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -371,6 +613,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -396,6 +639,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",

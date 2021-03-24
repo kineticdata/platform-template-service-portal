@@ -34,6 +34,155 @@
   ],
   "customHeadContent": null,
   "description": "Customers use this form to submit feedback to their kinops System Administrator.",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Category]",
+      "parts": [
+        "values[Category]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Comments]",
+      "parts": [
+        "values[Comments]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Discussion Id]",
+      "parts": [
+        "values[Discussion Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Form]",
+      "parts": [
+        "values[Form]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Kapp]",
+      "parts": [
+        "values[Kapp]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Individuals]",
+      "parts": [
+        "values[Observing Individuals]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Teams]",
+      "parts": [
+        "values[Observing Teams]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Page]",
+      "parts": [
+        "values[Page]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Referring Id]",
+      "parts": [
+        "values[Referring Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By Display Name]",
+      "parts": [
+        "values[Requested By Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By]",
+      "parts": [
+        "values[Requested By]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For Display Name]",
+      "parts": [
+        "values[Requested For Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For]",
+      "parts": [
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Space]",
+      "parts": [
+        "values[Space]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status]",
+      "parts": [
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Username]",
+      "parts": [
+        "values[Username]"
+      ],
+      "unique": false
+    }
+  ],
   "name": "Feedback",
   "notes": null,
   "pages": [
@@ -49,6 +198,7 @@
           "text": "<div id=\"feedback-header\"/>",
           "visible": true,
           "renderAttributes": {
+
           }
         },
         {
@@ -59,6 +209,7 @@
           "visible": true,
           "omitWhenHidden": null,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -81,6 +232,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -106,6 +258,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "file",
               "renderType": "attachment",
@@ -132,6 +285,7 @@
               "enabled": true,
               "renderType": "save",
               "renderAttributes": {
+
               }
             },
             {
@@ -142,6 +296,7 @@
               "enabled": true,
               "renderType": "submit-page",
               "renderAttributes": {
+
               }
             }
           ]
@@ -154,6 +309,7 @@
           "visible": false,
           "omitWhenHidden": false,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -176,6 +332,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -201,6 +358,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -226,6 +384,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -251,6 +410,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -276,6 +436,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -301,6 +462,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -326,6 +488,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -351,6 +514,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -376,6 +540,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -401,6 +566,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -426,6 +592,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -451,6 +618,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -476,6 +644,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -501,6 +670,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -530,6 +700,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -567,6 +738,7 @@
           "text": "<h2>Thanks!</h2>\n<p>We appreciate that you’ve taken the time to provide this feedback. This data is routed to the <strong>${space('name')}</strong> Feedback team for review, response, and action.</p>",
           "visible": true,
           "renderAttributes": {
+
           }
         }
       ],

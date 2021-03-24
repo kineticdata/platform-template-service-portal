@@ -22,6 +22,113 @@
   ],
   "customHeadContent": null,
   "description": "This form is used to allow users to join a team",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Discussion Id]",
+      "parts": [
+        "values[Discussion Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Individuals]",
+      "parts": [
+        "values[Observing Individuals]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Teams]",
+      "parts": [
+        "values[Observing Teams]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Reason for Joining]",
+      "parts": [
+        "values[Reason for Joining]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By Display Name]",
+      "parts": [
+        "values[Requested By Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By]",
+      "parts": [
+        "values[Requested By]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For Display Name]",
+      "parts": [
+        "values[Requested For Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For]",
+      "parts": [
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status]",
+      "parts": [
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Team Name]",
+      "parts": [
+        "values[Team Name]"
+      ],
+      "unique": false
+    }
+  ],
   "name": "Join Team Request",
   "notes": null,
   "pages": [
@@ -38,6 +145,7 @@
           "visible": true,
           "omitWhenHidden": null,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -60,6 +168,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -85,6 +194,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -110,6 +220,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -136,6 +247,7 @@
               "enabled": true,
               "renderType": "submit-page",
               "renderAttributes": {
+
               }
             }
           ]
@@ -148,6 +260,7 @@
           "visible": false,
           "omitWhenHidden": false,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -170,6 +283,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -195,6 +309,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -220,6 +335,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -245,6 +361,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -270,6 +387,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -299,6 +417,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -328,6 +447,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -355,6 +475,7 @@
           "text": "<h3>Your Request has been received.</h3>\n<p>We've sent a message to the team members to approve your request. Once approved, we'll let you know that you're in.</p>",
           "visible": true,
           "renderAttributes": {
+
           }
         }
       ],

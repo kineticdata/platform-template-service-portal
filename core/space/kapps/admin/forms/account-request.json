@@ -46,6 +46,134 @@
   ],
   "customHeadContent": null,
   "description": "Public Facing form that allows users to sign up for an account.",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Comments]",
+      "parts": [
+        "values[Comments]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Discussion Id]",
+      "parts": [
+        "values[Discussion Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Email]",
+      "parts": [
+        "values[Email]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[First Name]",
+      "parts": [
+        "values[First Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Last Name]",
+      "parts": [
+        "values[Last Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Individuals]",
+      "parts": [
+        "values[Observing Individuals]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Teams]",
+      "parts": [
+        "values[Observing Teams]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Phone Number]",
+      "parts": [
+        "values[Phone Number]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By Display Name]",
+      "parts": [
+        "values[Requested By Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By]",
+      "parts": [
+        "values[Requested By]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For Display Name]",
+      "parts": [
+        "values[Requested For Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For]",
+      "parts": [
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status]",
+      "parts": [
+        "values[Status]"
+      ],
+      "unique": false
+    }
+  ],
   "name": "Account Request",
   "notes": null,
   "pages": [
@@ -62,6 +190,7 @@
           "visible": true,
           "omitWhenHidden": null,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -84,6 +213,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -109,6 +239,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -137,6 +268,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -162,6 +294,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -187,6 +320,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -226,6 +360,7 @@
           "visible": false,
           "omitWhenHidden": false,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -248,6 +383,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -273,6 +409,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -298,6 +435,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -323,6 +461,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -348,6 +487,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -373,6 +513,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -402,6 +543,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -431,6 +573,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -469,6 +612,7 @@
           "text": "<h2>Account Request Received</h2>\n\n<p>As soon as your kinops Adminstrator approves the request, you'll get an email and be able to set your password.</p>",
           "visible": true,
           "renderAttributes": {
+
           }
         }
       ],

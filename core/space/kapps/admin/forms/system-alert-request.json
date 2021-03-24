@@ -40,6 +40,141 @@
   ],
   "customHeadContent": null,
   "description": "Request an alert to be displayed in the system's header.",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Content]",
+      "parts": [
+        "values[Content]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Discussion Id]",
+      "parts": [
+        "values[Discussion Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Individuals]",
+      "parts": [
+        "values[Observing Individuals]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Teams]",
+      "parts": [
+        "values[Observing Teams]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By Display Name]",
+      "parts": [
+        "values[Requested By Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By]",
+      "parts": [
+        "values[Requested By]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For Display Name]",
+      "parts": [
+        "values[Requested For Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For]",
+      "parts": [
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Search Category]",
+      "parts": [
+        "values[Search Category]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Search Parameter]",
+      "parts": [
+        "values[Search Parameter]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Start Date Time]",
+      "parts": [
+        "values[Start Date Time]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status]",
+      "parts": [
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Title]",
+      "parts": [
+        "values[Title]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[URL]",
+      "parts": [
+        "values[URL]"
+      ],
+      "unique": false
+    }
+  ],
   "name": "System Alert Request",
   "notes": null,
   "pages": [
@@ -56,6 +191,7 @@
           "visible": true,
           "omitWhenHidden": null,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -78,6 +214,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -103,6 +240,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -128,6 +266,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -153,6 +292,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "datetime"
@@ -178,6 +318,7 @@
               "enabled": true,
               "renderType": "submit-page",
               "renderAttributes": {
+
               }
             }
           ]
@@ -190,6 +331,7 @@
           "visible": false,
           "omitWhenHidden": false,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -212,6 +354,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -237,6 +380,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -262,6 +406,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -287,6 +432,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -312,6 +458,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -337,6 +484,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -366,6 +514,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -395,6 +544,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -420,6 +570,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -445,6 +596,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
