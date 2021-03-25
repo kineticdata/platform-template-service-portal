@@ -24,13 +24,6 @@
   "description": "Template used for creating new forms.",
   "indexDefinitions": [
     {
-      "name": "Base",
-      "parts": [
-        
-      ],
-      "unique": false
-    },
-    {
       "name": "closedBy",
       "parts": [
         "closedBy"

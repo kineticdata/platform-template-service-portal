@@ -30,13 +30,6 @@
   "description": "This form is used to create issues and send them to your system administrator.",
   "indexDefinitions": [
     {
-      "name": "Base",
-      "parts": [
-        
-      ],
-      "unique": false
-    },
-    {
       "name": "closedBy",
       "parts": [
         "closedBy"

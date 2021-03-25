@@ -74,13 +74,6 @@
   "description": "Form used for inviting others to the system.",
   "indexDefinitions": [
     {
-      "name": "Base",
-      "parts": [
-        
-      ],
-      "unique": false
-    },
-    {
       "name": "closedBy",
       "parts": [
         "closedBy"

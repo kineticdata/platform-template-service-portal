@@ -34,13 +34,6 @@
   "description": "This form can be used to request something not listed in the Catalog from the IT Team.",
   "indexDefinitions": [
     {
-      "name": "Base",
-      "parts": [
-        
-      ],
-      "unique": false
-    },
-    {
       "name": "closedBy",
       "parts": [
         "closedBy"

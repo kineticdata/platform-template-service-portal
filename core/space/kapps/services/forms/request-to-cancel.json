@@ -42,13 +42,6 @@
   "description": "This form is used by the portal to cancel a request that has previously been submitted and is no longer needed.",
   "indexDefinitions": [
     {
-      "name": "Base",
-      "parts": [
-        
-      ],
-      "unique": false
-    },
-    {
       "name": "closedBy",
       "parts": [
         "closedBy"

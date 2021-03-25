@@ -36,13 +36,6 @@
   "description": "Customers use this form to submit feedback to their kinops System Administrator.",
   "indexDefinitions": [
     {
-      "name": "Base",
-      "parts": [
-        
-      ],
-      "unique": false
-    },
-    {
       "name": "closedBy",
       "parts": [
         "closedBy"

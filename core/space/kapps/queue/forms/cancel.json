@@ -42,13 +42,6 @@
   "description": "Submissions for this form are automatically created as part of workflow.",
   "indexDefinitions": [
     {
-      "name": "Base",
-      "parts": [
-        
-      ],
-      "unique": false
-    },
-    {
       "name": "closedBy",
       "parts": [
         "closedBy"

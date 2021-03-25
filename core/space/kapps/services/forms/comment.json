@@ -24,13 +24,6 @@
   "description": "This form is used by the portal to add a comment on a previously submitted request.",
   "indexDefinitions": [
     {
-      "name": "Base",
-      "parts": [
-        
-      ],
-      "unique": false
-    },
-    {
       "name": "closedBy",
       "parts": [
         "closedBy"

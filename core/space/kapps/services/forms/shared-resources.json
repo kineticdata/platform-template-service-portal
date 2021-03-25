@@ -42,13 +42,6 @@
   "description": "Form that holds fields for bridge searching and other resources that are shared across forms.",
   "indexDefinitions": [
     {
-      "name": "Base",
-      "parts": [
-        
-      ],
-      "unique": false
-    },
-    {
       "name": "closedBy",
       "parts": [
         "closedBy"

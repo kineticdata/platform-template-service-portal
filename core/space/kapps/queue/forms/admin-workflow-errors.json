@@ -24,13 +24,6 @@
   "description": "This task is designed for resolving workflow errors in the Kinops Task Engine.",
   "indexDefinitions": [
     {
-      "name": "Base",
-      "parts": [
-        
-      ],
-      "unique": false
-    },
-    {
       "name": "closedBy",
       "parts": [
         "closedBy"
