@@ -169,6 +169,15 @@
   "enabledLocales": [
     "en"
   ],
+  "indexDefinitions": [
+    {
+      "name": "Base",
+      "parts": [
+        
+      ],
+      "unique": false
+    }
+  ],
   "loginPage": null,
   "name": "Service Portal Template",
   "platformComponents": {
