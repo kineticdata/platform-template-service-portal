@@ -18,6 +18,13 @@
   "description": "Form used to track Search History from within the system.",
   "indexDefinitions": [
     {
+      "name": "Base",
+      "parts": [
+        
+      ],
+      "unique": false
+    },
+    {
       "name": "closedBy",
       "parts": [
         "closedBy"

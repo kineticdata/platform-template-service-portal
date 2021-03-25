@@ -42,6 +42,13 @@
   "description": "Can't find what you're looking for? Request a new service from your kinops Administrator",
   "indexDefinitions": [
     {
+      "name": "Base",
+      "parts": [
+        
+      ],
+      "unique": false
+    },
+    {
       "name": "closedBy",
       "parts": [
         "closedBy"

@@ -46,6 +46,13 @@
   "description": "This form captures information that is needed when a new employee is hired.",
   "indexDefinitions": [
     {
+      "name": "Base",
+      "parts": [
+        
+      ],
+      "unique": false
+    },
+    {
       "name": "closedBy",
       "parts": [
         "closedBy"

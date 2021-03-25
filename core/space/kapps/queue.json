@@ -76,6 +76,13 @@
   ],
   "indexDefinitions": [
     {
+      "name": "Base",
+      "parts": [
+        
+      ],
+      "unique": false
+    },
+    {
       "name": "values[Assigned Individual]",
       "parts": [
         "values[Assigned Individual]"

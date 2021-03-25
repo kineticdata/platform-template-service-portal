@@ -31,6 +31,13 @@
   "description": "Creates a case associated to a specified individual.",
   "indexDefinitions": [
     {
+      "name": "Base",
+      "parts": [
+        
+      ],
+      "unique": false
+    },
+    {
       "name": "closedBy",
       "parts": [
         "closedBy"

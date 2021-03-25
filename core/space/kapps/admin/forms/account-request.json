@@ -48,6 +48,13 @@
   "description": "Public Facing form that allows users to sign up for an account.",
   "indexDefinitions": [
     {
+      "name": "Base",
+      "parts": [
+        
+      ],
+      "unique": false
+    },
+    {
       "name": "closedBy",
       "parts": [
         "closedBy"

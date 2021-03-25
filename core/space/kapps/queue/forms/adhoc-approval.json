@@ -24,6 +24,13 @@
   "description": "Creates a generic approval for an individual or team.",
   "indexDefinitions": [
     {
+      "name": "Base",
+      "parts": [
+        
+      ],
+      "unique": false
+    },
+    {
       "name": "closedBy",
       "parts": [
         "closedBy"

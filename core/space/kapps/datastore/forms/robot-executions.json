@@ -18,6 +18,13 @@
   "description": "Store the details of an execution of a robot's schedule.",
   "indexDefinitions": [
     {
+      "name": "Base",
+      "parts": [
+        
+      ],
+      "unique": false
+    },
+    {
       "name": "closedBy",
       "parts": [
         "closedBy"

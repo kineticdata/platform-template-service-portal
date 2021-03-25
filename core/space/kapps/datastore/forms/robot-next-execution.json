@@ -24,6 +24,13 @@
   "description": "This form holds the next execution time for a specific schedule",
   "indexDefinitions": [
     {
+      "name": "Base",
+      "parts": [
+        
+      ],
+      "unique": false
+    },
+    {
       "name": "closedBy",
       "parts": [
         "closedBy"

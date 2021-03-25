@@ -140,6 +140,13 @@
   ],
   "indexDefinitions": [
     {
+      "name": "Base",
+      "parts": [
+        
+      ],
+      "unique": false
+    },
+    {
       "name": "type,coreState,createdBy",
       "parts": [
         "type",

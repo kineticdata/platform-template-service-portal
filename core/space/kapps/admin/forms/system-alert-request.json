@@ -42,6 +42,13 @@
   "description": "Request an alert to be displayed in the system's header.",
   "indexDefinitions": [
     {
+      "name": "Base",
+      "parts": [
+        
+      ],
+      "unique": false
+    },
+    {
       "name": "closedBy",
       "parts": [
         "closedBy"
