@@ -10,11 +10,6 @@
     "name": "Approver"
   },
   {
-    "allowsMultiple": false,
-    "description": null,
-    "name": "Console Slug"
-  },
-  {
     "allowsMultiple": true,
     "description": "If the form has custom submission workflow for a given event, the name of the event (i.e. Created, Saved, Submitted...etc) should be listed as one of the attribute values",
     "name": "Custom Submission Workflow"
