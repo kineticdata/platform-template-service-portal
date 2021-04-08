@@ -209,7 +209,7 @@ membershipsJSON = JSON.parse(memberships) %&gt;
                     <task label="" type="Complete" value="">system_junction_v1_23</task>
                 </dependents>
             </task>
-            <task definition_id="routine_kinetic_user_create_v1" id="routine_kinetic_user_create_v1_46" name="Create User" x="451" y="407">
+            <task definition_id="routine_kinetic_user_create_v1" id="routine_kinetic_user_create_v1_46" name="Create User" x="456" y="411">
                 <version>1</version>
                 <configured>true</configured>
                 <defers>true</defers>
