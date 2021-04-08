@@ -335,7 +335,7 @@
               "defaultValue": null,
               "defaultResourceName": null,
               "visible": true,
-              "enabled": true,
+              "enabled": false,
               "required": false,
               "requiredMessage": null,
               "omitWhenHidden": null,
