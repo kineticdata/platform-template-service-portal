@@ -22,5 +22,11 @@
     "name": "Everyone",
     "rule": "true",
     "type": "Kapp"
+  },
+  {
+    "message": "Must be the user that created the submission.",
+    "name": "Submitter",
+    "rule": "(\n    // Submitter\n    ((submission('anonymous') && submission('sessionToken') == identity('sessionToken'))\n    || (!submission('anonymous') && submission('createdBy') == identity('username')))\n    // Submission is Draft\n    && (submission('coreState') == 'Draft')\n)",
+    "type": "Kapp"
   }
 ]
