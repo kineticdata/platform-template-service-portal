@@ -158,8 +158,20 @@ task_source_properties = {
   },
 }
 
+# smtp data
+if vars["data"].has_key? "smtp"
+  smtp = vars["data"]["smtp"]
+  pw = smtp["password"]
+  smtp["password"] = "************"
+  logger.info "The provided smtp variable data is: #{smtp}"
+  smtp["password"] = pw
+else
+  logger.info "The smtp variable data was not provided to the \"#{template_name}\" template"
+  logger.info "Provided data: #{vars["data"]}"
+  smtp = {}
+end
+
 # task handler info values
-smtp = vars["data"]["smtp"] || {}
 task_handler_configurations = {
   "smtp_email_send" => {
     "server" => smtp["server"] || smtp["host"] || "mysmtp.com",
