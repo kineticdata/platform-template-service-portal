@@ -1,6 +1,6 @@
 require "json"
 
-space_name = "Service Portal Temlate"
+space_name = "Service Portal Template"
 space_slug = "service-portal-template"
 server = "https://#{space_slug}.kinops.io"
 username = "admin-user"

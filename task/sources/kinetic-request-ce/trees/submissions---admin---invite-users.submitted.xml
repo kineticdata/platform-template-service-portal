@@ -189,7 +189,7 @@
                     <parameter id="Username" label="Username" menu="" required="true" tooltip="The value the User will use to login to the application">&lt;%=JSON.parse(@results['User JSON']['output'])['email']%&gt;</parameter>
                     <parameter id="Email" label="Email" menu="" required="true" tooltip="The email address to send notifications to the user">&lt;%=JSON.parse(@results['User JSON']['output'])['email']%&gt;</parameter>
                     <parameter id="Display Name" label="Display Name" menu="" required="true" tooltip="The name that is displayed for the user">&lt;%=JSON.parse(@results['User JSON']['output'])['email']%&gt;</parameter>
-                    <parameter id="Attributes Map JSON" label="Attributes Map JSON" menu="" required="false" tooltip="JSON representation of the attributes associated to the user"></parameter>
+                    <parameter id="Attributes Map JSON" label="Attributes Map JSON" menu="" required="false" tooltip="JSON representation of the attributes associated to the user">{"Invited By":["&lt;%= @values['Requested By Display Name']%&gt;"]}</parameter>
                     <parameter id="Profile Attributes Map JSON" label="Profile Attributes Map JSON" menu="" required="false" tooltip="JSON representation of the profile attributes associated to the user"></parameter>
                     <parameter id="Is Space Admin" label="Is Space Admin" menu="" required="false" tooltip="(True | False) Whether the user is a super administrator user">&lt;%=JSON.parse(@results['User JSON']['output'])['spaceAdmin']%&gt;</parameter>
                     <parameter id="Is Enabled" label="Is Enabled" menu="" required="false" tooltip="(True | False) Whether the user is enabled"></parameter>

@@ -40,6 +40,214 @@
   ],
   "customHeadContent": null,
   "description": "Submissions for this form are automatically created as part of workflow.",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual Display Name]",
+      "parts": [
+        "values[Assigned Individual Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual]",
+      "parts": [
+        "values[Assigned Individual]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Status]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Status],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Status]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Status],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team Display Name]",
+      "parts": [
+        "values[Assigned Team Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team]",
+      "parts": [
+        "values[Assigned Team]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],createdBy",
+      "parts": [
+        "values[Assigned Team]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Status]",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Status],createdBy",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Deferral Token]",
+      "parts": [
+        "values[Deferral Token]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Details]",
+      "parts": [
+        "values[Details]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Due Date]",
+      "parts": [
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Resolution]",
+      "parts": [
+        "values[Resolution]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Scheduled Date]",
+      "parts": [
+        "values[Scheduled Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status]",
+      "parts": [
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],createdBy",
+      "parts": [
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Summary]",
+      "parts": [
+        "values[Summary]"
+      ],
+      "unique": false
+    }
+  ],
   "name": "Cancel",
   "notes": null,
   "pages": [
@@ -56,6 +264,7 @@
           "visible": true,
           "omitWhenHidden": null,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -78,6 +287,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -103,6 +313,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -118,6 +329,7 @@
           "visible": false,
           "omitWhenHidden": false,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -140,6 +352,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -165,6 +378,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -190,6 +404,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -215,6 +430,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -240,6 +456,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "dropdown",
@@ -284,6 +501,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "date"
@@ -308,6 +526,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -333,6 +552,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -358,6 +578,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "datetime"

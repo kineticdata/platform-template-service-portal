@@ -1,4 +1,5 @@
 {
+  "anonymous": false,
   "attributes": [
     {
       "name": "Datastore Hidden",
@@ -10,13 +11,16 @@
   "bridgedResources": [
 
   ],
+  "categorizations": [
+
+  ],
   "customHeadContent": "",
   "description": "Store the details of an execution of a robot's schedule.",
   "indexDefinitions": [
     {
-      "name": "createdAt",
+      "name": "closedBy",
       "parts": [
-        "createdAt"
+        "closedBy"
       ],
       "unique": false
     },
@@ -35,23 +39,9 @@
       "unique": false
     },
     {
-      "name": "submittedAt",
-      "parts": [
-        "submittedAt"
-      ],
-      "unique": false
-    },
-    {
       "name": "submittedBy",
       "parts": [
         "submittedBy"
-      ],
-      "unique": false
-    },
-    {
-      "name": "updatedAt",
-      "parts": [
-        "updatedAt"
       ],
       "unique": false
     },
@@ -113,11 +103,10 @@
       "unique": false
     },
     {
-      "name": "values[Robot ID],values[Status],createdAt",
+      "name": "values[Robot ID],values[Status]",
       "parts": [
         "values[Robot ID]",
-        "values[Status]",
-        "createdAt"
+        "values[Status]"
       ],
       "unique": false
     },
@@ -174,6 +163,7 @@
           "visible": true,
           "omitWhenHidden": null,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -196,6 +186,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "radio",
@@ -236,6 +227,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -261,6 +253,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -286,6 +279,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "datetime"
@@ -310,6 +304,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "datetime"
@@ -334,6 +329,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -384,6 +380,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -399,6 +396,7 @@
           "visible": false,
           "omitWhenHidden": false,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -421,6 +419,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -446,6 +445,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -467,5 +467,6 @@
   ],
   "slug": "robot-executions",
   "status": "Active",
-  "submissionLabelExpression": "${values('Robot Name')} - ${values('Start')}"
+  "submissionLabelExpression": "${values('Robot Name')} - ${values('Start')}",
+  "type": null
 }

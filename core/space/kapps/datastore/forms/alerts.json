@@ -1,4 +1,5 @@
 {
+  "anonymous": false,
   "attributes": [
     {
       "name": "Datastore Hidden",
@@ -10,13 +11,16 @@
   "bridgedResources": [
 
   ],
+  "categorizations": [
+
+  ],
   "customHeadContent": null,
-  "description": "",
+  "description": "System Alert notifications.",
   "indexDefinitions": [
     {
-      "name": "createdAt",
+      "name": "closedBy",
       "parts": [
-        "createdAt"
+        "closedBy"
       ],
       "unique": false
     },
@@ -35,23 +39,9 @@
       "unique": false
     },
     {
-      "name": "submittedAt",
-      "parts": [
-        "submittedAt"
-      ],
-      "unique": false
-    },
-    {
       "name": "submittedBy",
       "parts": [
         "submittedBy"
-      ],
-      "unique": false
-    },
-    {
-      "name": "updatedAt",
-      "parts": [
-        "updatedAt"
       ],
       "unique": false
     },
@@ -63,38 +53,23 @@
       "unique": false
     },
     {
-      "name": "values[HTML Content]",
+      "name": "values[Content]",
       "parts": [
-        "values[HTML Content]"
+        "values[Content]"
       ],
       "unique": false
     },
     {
-      "name": "values[Language]",
+      "name": "values[Source]",
       "parts": [
-        "values[Language]"
+        "values[Source]"
       ],
       "unique": false
     },
     {
-      "name": "values[Name]",
+      "name": "values[Start Date Time]",
       "parts": [
-        "values[Name]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Name],values[Status]:UNIQUE",
-      "parts": [
-        "values[Name]",
-        "values[Status]"
-      ],
-      "unique": true
-    },
-    {
-      "name": "values[Region]",
-      "parts": [
-        "values[Region]"
+        "values[Start Date Time]"
       ],
       "unique": false
     },
@@ -106,53 +81,101 @@
       "unique": false
     },
     {
-      "name": "values[Subject]",
+      "name": "values[Title]",
       "parts": [
-        "values[Subject]"
+        "values[Title]"
       ],
       "unique": false
     },
     {
-      "name": "values[Text Content]",
+      "name": "values[URL]",
       "parts": [
-        "values[Text Content]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Type]",
-      "parts": [
-        "values[Type]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Type],values[Name]",
-      "parts": [
-        "values[Type]",
-        "values[Name]"
+        "values[URL]"
       ],
       "unique": false
     }
   ],
-  "name": "Notification Data",
+  "name": "Alerts",
   "notes": null,
   "pages": [
     {
-      "advanceCondition": null,
+      "advanceCondition": "",
       "displayCondition": null,
-      "displayPage": null,
+      "displayPage": "",
       "elements": [
         {
           "type": "field",
-          "name": "Name",
-          "label": "Name",
+          "name": "Status",
+          "label": "Status",
+          "key": "f901",
+          "defaultValue": "Active",
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": true,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": null,
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+
+          },
+          "dataType": "string",
+          "renderType": "radio",
+          "choicesResourceName": null,
+          "choicesRunIf": null,
+          "choices": [
+            {
+              "label": "Active",
+              "value": "Active"
+            },
+            {
+              "label": "Inactive",
+              "value": "Inactive"
+            }
+          ]
+        },
+        {
+          "type": "field",
+          "name": "Title",
+          "label": "Title",
+          "key": "f1",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": true,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": null,
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+
+          },
+          "dataType": "string",
+          "renderType": "text",
+          "rows": 1
+        },
+        {
+          "type": "field",
+          "name": "Content",
+          "label": "Content",
           "key": "f2",
           "defaultValue": null,
           "defaultResourceName": null,
           "visible": true,
           "enabled": true,
-          "required": true,
+          "required": false,
           "requiredMessage": null,
           "omitWhenHidden": null,
           "pattern": null,
@@ -163,45 +186,21 @@
 
           ],
           "renderAttributes": {
+
           },
           "dataType": "string",
           "renderType": "text",
-          "rows": 1
+          "rows": 3
         },
         {
           "type": "field",
-          "name": "Status",
-          "label": null,
+          "name": "Start Date Time",
+          "label": "Start Date",
           "key": "f3",
           "defaultValue": null,
           "defaultResourceName": null,
           "visible": true,
           "enabled": true,
-          "required": true,
-          "requiredMessage": null,
-          "omitWhenHidden": null,
-          "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
-          "dataType": "string",
-          "renderType": "text",
-          "rows": 1
-        },
-        {
-          "type": "field",
-          "name": "Language",
-          "label": "Language",
-          "key": "f9",
-          "defaultValue": null,
-          "defaultResourceName": null,
-          "visible": true,
-          "enabled": true,
           "required": false,
           "requiredMessage": null,
           "omitWhenHidden": null,
@@ -213,121 +212,21 @@
 
           ],
           "renderAttributes": {
+
           },
           "dataType": "string",
-          "renderType": "text",
-          "rows": 1
+          "renderType": "datetime"
         },
         {
           "type": "field",
-          "name": "Region",
-          "label": "Region",
-          "key": "f8",
-          "defaultValue": null,
-          "defaultResourceName": null,
-          "visible": true,
-          "enabled": true,
-          "required": false,
-          "requiredMessage": null,
-          "omitWhenHidden": null,
-          "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
-          "dataType": "string",
-          "renderType": "text",
-          "rows": 1
-        },
-        {
-          "type": "field",
-          "name": "Subject",
-          "label": null,
-          "key": "f7",
-          "defaultValue": null,
-          "defaultResourceName": null,
-          "visible": true,
-          "enabled": true,
-          "required": "values('Type') !== \"Snippet\"",
-          "requiredMessage": null,
-          "omitWhenHidden": null,
-          "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
-          "dataType": "string",
-          "renderType": "text",
-          "rows": 1
-        },
-        {
-          "type": "field",
-          "name": "HTML Content",
-          "label": "HTML Content",
-          "key": "f6",
-          "defaultValue": null,
-          "defaultResourceName": null,
-          "visible": true,
-          "enabled": true,
-          "required": true,
-          "requiredMessage": null,
-          "omitWhenHidden": null,
-          "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
-          "dataType": "string",
-          "renderType": "text",
-          "rows": 1
-        },
-        {
-          "type": "field",
-          "name": "Text Content",
-          "label": "Text Content",
-          "key": "f5",
-          "defaultValue": null,
-          "defaultResourceName": null,
-          "visible": true,
-          "enabled": true,
-          "required": true,
-          "requiredMessage": null,
-          "omitWhenHidden": null,
-          "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
-          "dataType": "string",
-          "renderType": "text",
-          "rows": 1
-        },
-        {
-          "type": "field",
-          "name": "Type",
-          "label": "Type",
+          "name": "URL",
+          "label": "URL",
           "key": "f4",
           "defaultValue": null,
           "defaultResourceName": null,
           "visible": true,
           "enabled": true,
-          "required": true,
+          "required": false,
           "requiredMessage": null,
           "omitWhenHidden": null,
           "pattern": null,
@@ -338,6 +237,7 @@
 
           ],
           "renderAttributes": {
+
           },
           "dataType": "string",
           "renderType": "text",
@@ -346,18 +246,69 @@
         {
           "type": "button",
           "label": "Submit",
-          "name": "Submit Button",
+          "name": "Submit",
           "visible": true,
           "enabled": true,
           "renderType": "submit-page",
           "renderAttributes": {
+
           }
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Hidden Questions",
+          "title": null,
+          "visible": false,
+          "omitWhenHidden": false,
+          "renderAttributes": {
+
+          },
+          "elements": [
+            {
+              "type": "field",
+              "name": "Source",
+              "label": "Source",
+              "key": "f5",
+              "defaultValue": "Local",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": true,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "dropdown",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+                {
+                  "label": "kinops",
+                  "value": "kinops"
+                },
+                {
+                  "label": "Local",
+                  "value": "Local"
+                }
+              ]
+            }
+          ]
         }
       ],
       "events": [
 
       ],
-      "name": "One",
+      "name": "Alerts",
       "renderType": "submittable",
       "type": "page"
     }
@@ -373,14 +324,15 @@
     },
     {
       "endpoint": "Submission Access",
-      "name": "Data Admins"
+      "name": "Authenticated Users"
     },
     {
       "endpoint": "Submission Modification",
       "name": "Data Admins"
     }
   ],
-  "slug": "notification-data",
+  "slug": "alerts",
   "status": "Active",
-  "submissionLabelExpression": "${values('Name')}"
+  "submissionLabelExpression": "${values('Title')}",
+  "type": null
 }

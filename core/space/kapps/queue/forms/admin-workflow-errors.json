@@ -22,6 +22,291 @@
   ],
   "customHeadContent": "",
   "description": "This task is designed for resolving workflow errors in the Kinops Task Engine.",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Action]",
+      "parts": [
+        "values[Action]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual Display Name]",
+      "parts": [
+        "values[Assigned Individual Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual]",
+      "parts": [
+        "values[Assigned Individual]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Status]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Status],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Status]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Status],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team Display Name]",
+      "parts": [
+        "values[Assigned Team Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team]",
+      "parts": [
+        "values[Assigned Team]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],createdBy",
+      "parts": [
+        "values[Assigned Team]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Status]",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Status],createdBy",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Cancellation Reason]",
+      "parts": [
+        "values[Cancellation Reason]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Deferral Token]",
+      "parts": [
+        "values[Deferral Token]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Details]",
+      "parts": [
+        "values[Details]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Discussion Id]",
+      "parts": [
+        "values[Discussion Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Due Date]",
+      "parts": [
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Error Message]",
+      "parts": [
+        "values[Error Message]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Handler Name]",
+      "parts": [
+        "values[Handler Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Inputs JSON]",
+      "parts": [
+        "values[Inputs JSON]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Inputs Updated]",
+      "parts": [
+        "values[Inputs Updated]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Individuals]",
+      "parts": [
+        "values[Observing Individuals]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Teams]",
+      "parts": [
+        "values[Observing Teams]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Pending Reason]",
+      "parts": [
+        "values[Pending Reason]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Resolution]",
+      "parts": [
+        "values[Resolution]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Run Id]",
+      "parts": [
+        "values[Run Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Scheduled Date]",
+      "parts": [
+        "values[Scheduled Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status]",
+      "parts": [
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],createdBy",
+      "parts": [
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Summary]",
+      "parts": [
+        "values[Summary]"
+      ],
+      "unique": false
+    }
+  ],
   "name": "Admin Workflow Errors",
   "notes": null,
   "pages": [
@@ -38,6 +323,7 @@
           "visible": true,
           "omitWhenHidden": null,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -47,6 +333,7 @@
               "text": "<h4>A Kinetic Task handler failed and needs your attention <small>Details Below</small></h4>\n<dl>\n  <dt>Handler that failed</dt>\n  <dd>${values('Handler Name')}</dd>\n  <dt>Run Id</dt>\n  <dd>${values('Run Id')}</dd>\n  <dt>Error Message</dt>\n  <dd>${values('Error Message')}</dd>\n</dl>\n<h5>You can retry the workflow after correcting the issue, or modify the inputs to this run</h5>",
               "visible": true,
               "renderAttributes": {
+
               }
             },
             {
@@ -69,6 +356,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "radio",
@@ -113,6 +401,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -138,6 +427,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -174,6 +464,7 @@
                 }
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "radio",
@@ -201,6 +492,7 @@
               "text": "<div class=\"row\">\n\t<div class =\"col-10\">\n\t\t<div id=\"inputs\" class=\"form-horizontal\">\n\t\t</div>\n\t</div>\n</div>",
               "visible": "values('Action') === 'Update Inputs'",
               "renderAttributes": {
+
               }
             }
           ]
@@ -213,6 +505,7 @@
           "visible": false,
           "omitWhenHidden": false,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -235,6 +528,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -260,6 +554,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -285,6 +580,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -310,6 +606,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -335,6 +632,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -360,6 +658,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -385,6 +684,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -414,6 +714,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -443,6 +744,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -468,6 +770,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "datetime"
@@ -492,6 +795,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -517,6 +821,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -542,6 +847,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "datetime"
@@ -556,6 +862,7 @@
           "visible": false,
           "omitWhenHidden": false,
           "renderAttributes": {
+
           },
           "elements": [
             {
@@ -578,6 +885,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -603,6 +911,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -628,6 +937,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -653,6 +963,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",
@@ -678,6 +989,7 @@
 
               ],
               "renderAttributes": {
+
               },
               "dataType": "string",
               "renderType": "text",

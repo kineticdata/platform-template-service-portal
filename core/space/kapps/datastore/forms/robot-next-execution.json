@@ -1,4 +1,5 @@
 {
+  "anonymous": false,
   "attributes": [
     {
       "name": "Datastore Configuration",
@@ -16,13 +17,16 @@
   "bridgedResources": [
 
   ],
+  "categorizations": [
+
+  ],
   "customHeadContent": null,
   "description": "This form holds the next execution time for a specific schedule",
   "indexDefinitions": [
     {
-      "name": "createdAt",
+      "name": "closedBy",
       "parts": [
-        "createdAt"
+        "closedBy"
       ],
       "unique": false
     },
@@ -41,23 +45,9 @@
       "unique": false
     },
     {
-      "name": "submittedAt",
-      "parts": [
-        "submittedAt"
-      ],
-      "unique": false
-    },
-    {
       "name": "submittedBy",
       "parts": [
         "submittedBy"
-      ],
-      "unique": false
-    },
-    {
-      "name": "updatedAt",
-      "parts": [
-        "updatedAt"
       ],
       "unique": false
     },
@@ -111,6 +101,7 @@
 
           ],
           "renderAttributes": {
+
           },
           "dataType": "string",
           "renderType": "text",
@@ -136,6 +127,7 @@
 
           ],
           "renderAttributes": {
+
           },
           "dataType": "string",
           "renderType": "datetime"
@@ -148,6 +140,7 @@
           "enabled": true,
           "renderType": "submit-page",
           "renderAttributes": {
+
           }
         }
       ],
@@ -164,5 +157,6 @@
   ],
   "slug": "robot-next-execution",
   "status": "Active",
-  "submissionLabelExpression": "${values('Robot ID')} - ${values('Next Execution')}"
+  "submissionLabelExpression": "${values('Robot ID')} - ${values('Next Execution')}",
+  "type": null
 }

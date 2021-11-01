@@ -162,8 +162,6 @@
   "customTranslationContexts": [
 
   ],
-  "defaultDatastoreFormConfirmationPage": null,
-  "defaultDatastoreFormDisplayPage": null,
   "defaultLocale": "en",
   "defaultTimezone": "America/Chicago",
   "displayType": "Single Page App",
@@ -224,9 +222,6 @@
 
   ],
   "trustedResourceDomains": [
-
-  ],
-  "webApis": [
 
   ]
 }
