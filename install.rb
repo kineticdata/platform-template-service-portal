@@ -442,6 +442,15 @@ task_sdk.find_handlers.content["handlers"].each do |handler|
           "space_slug" => nil,
         },
       })
+    elsif handler_definition_id.start_with?("kinetic_agent_handler_execute_v")
+      task_sdk.update_handler(handler_definition_id, {
+        "properties" => {
+          "api_server" => vars["core"]["server"],
+          "api_username" => vars["core"]["service_user_username"],
+          "api_password" => vars["core"]["service_user_password"],
+          "space_slug" => nil,
+        },
+      })
     end
   end
 end
