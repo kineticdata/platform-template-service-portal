@@ -468,5 +468,5 @@
   "slug": "robot-executions",
   "status": "Active",
   "submissionLabelExpression": "${values('Robot Name')} - ${values('Start')}",
-  "type": null
+  "type": "Datastore"
 }
