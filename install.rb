@@ -22,11 +22,6 @@
 #     "task_api_v1" => "http://localhost:8080/kinetic/foo/app/components/task/app/api/v1",
 #     "task_api_v2" => "http://localhost:8080/kinetic/foo/app/components/task/app/api/v2"
 #   },
-#   "discussions" => {
-#     "api" => "http://localhost:8080/app/discussions/api/v1",
-#     "server" => "http://localhost:8080/app/discussions",
-#     "space_slug" => "foo"
-#   },
 #   "task" => {
 #     "api" => "http://localhost:8080/kinetic-task/app/api/v1",
 #     "api_v2" => "http://localhost:8080/kinetic-task/app/api/v2",

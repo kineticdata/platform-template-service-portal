@@ -44,12 +44,6 @@
       ]
     },
     {
-      "name": "Discussion Server Url",
-      "values": [
-        "Not used with Kinetic Discussions"
-      ]
-    },
-    {
       "name": "Feedback Form Slug",
       "values": [
         "feedback"
