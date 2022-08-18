@@ -31,11 +31,6 @@ data = {
      "space_slug" => space_slug,
      "signature_secret" => "1234asdf5678jkl;"
    },
-   "discussions" => {
-     "api" => "#{server}/app/discussions/api/v1",
-     "server" => "#{server}/app/discussions",
-     "space_slug" => space_slug
-   },
    "data" => {
      "requesting_user" => {
        "username" => "joe.user",
