@@ -100,13 +100,6 @@
       "unique": false
     },
     {
-      "name": "values[Discussion Id]",
-      "parts": [
-        "values[Discussion Id]"
-      ],
-      "unique": false
-    },
-    {
       "name": "values[Observing Individuals]",
       "parts": [
         "values[Observing Individuals]"
@@ -223,32 +216,6 @@
 
           },
           "elements": [
-            {
-              "type": "field",
-              "name": "Discussion Id",
-              "label": "Discussion Id",
-              "key": "f902",
-              "defaultValue": null,
-              "defaultResourceName": null,
-              "visible": false,
-              "enabled": true,
-              "required": false,
-              "requiredMessage": null,
-              "omitWhenHidden": false,
-              "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-
-              },
-              "dataType": "string",
-              "renderType": "text",
-              "rows": 1
-            },
             {
               "type": "field",
               "name": "Observing Individuals",

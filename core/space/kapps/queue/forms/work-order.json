@@ -188,13 +188,6 @@
       "unique": false
     },
     {
-      "name": "values[Discussion Id]",
-      "parts": [
-        "values[Discussion Id]"
-      ],
-      "unique": false
-    },
-    {
       "name": "values[Due Date]",
       "parts": [
         "values[Due Date]"
@@ -643,32 +636,6 @@
               "dataType": "string",
               "renderType": "text",
               "rows": 2
-            },
-            {
-              "type": "field",
-              "name": "Discussion Id",
-              "label": "Discussion Id",
-              "key": "f6",
-              "defaultValue": null,
-              "defaultResourceName": null,
-              "visible": true,
-              "enabled": true,
-              "required": false,
-              "requiredMessage": null,
-              "omitWhenHidden": null,
-              "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-
-              },
-              "dataType": "string",
-              "renderType": "text",
-              "rows": 1
             },
             {
               "type": "field",

@@ -26,11 +26,6 @@
   },
   {
     "allowsMultiple": false,
-    "description": "The Discussion Id related to this kapp",
-    "name": "Discussion Id"
-  },
-  {
-    "allowsMultiple": false,
     "description": "Font Awesome icon to display in Kapp Links",
     "name": "Icon"
   },
