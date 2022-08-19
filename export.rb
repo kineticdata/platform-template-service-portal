@@ -47,23 +47,6 @@ core_path = File.join(platform_template_path, "core")
 task_path = File.join(platform_template_path, "task")
 
 # ------------------------------------------------------------------------------
-# methods
-# ------------------------------------------------------------------------------
-
-# Removes discussion id attribute from a given model
-def remove_discussion_id_attribute(model)
-  if !model.is_a?(Array)
-    if model.has_key?("attributes")
-      scrubbed = model["attributes"].select do |attribute|
-        attribute["name"] != "Discussion Id"
-      end
-    end
-    model["attributes"] = scrubbed
-  end
-  return model
-end
-
-# ------------------------------------------------------------------------------
 # constants
 # ------------------------------------------------------------------------------
 
@@ -151,12 +134,6 @@ if space.has_key?("platformComponents")
 end
 # rewrite the space file
 File.open(filename, 'w') { |file| file.write(JSON.pretty_generate(space)) }
-
-# cleanup discussion ids
-Dir["#{core_path}/**/*.json"].each do |filename|
-  model = remove_discussion_id_attribute(JSON.parse(File.read(filename)))
-  File.open(filename, 'w') { |file| file.write(JSON.pretty_generate(model)) }
-end
 
 # export submissions
 logger.info "  - exporting and writing submission data"

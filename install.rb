@@ -145,12 +145,6 @@ task_source_properties = {
     "Proxy Username" => vars["core"]["service_user_username"],
     "Proxy Password" => vars["core"]["service_user_password"],
   },
-  "Kinetic Discussions" => {
-    "Space Slug" => nil,
-    "Web Server" => vars["core"]["server"],
-    "Proxy Username" => vars["core"]["service_user_username"],
-    "Proxy Password" => vars["core"]["service_user_password"],
-  },
 }
 
 # smtp data
@@ -389,16 +383,6 @@ task_sdk.find_handlers.content["handlers"].each do |handler|
           "api_password" => vars["core"]["service_user_password"],
         },
       })
-    elsif handler_definition_id.start_with?("kinetic_discussions_api_v1")
-      logger.info "Updating handler #{handler_definition_id}"
-      task_sdk.update_handler(handler_definition_id, {
-        "properties" => {
-          "api_oauth_location" => "#{vars["core"]["server"]}/app/oauth/token?grant_type=client_credentials&response_type=token",
-          "api_location" => vars["discussions"]["api"],
-          "api_username" => vars["core"]["service_user_username"],
-          "api_password" => vars["core"]["service_user_password"],
-        },
-      })
     elsif handler_definition_id.start_with?("kinetic_task_api_v1")
       logger.info "Updating handler #{handler_definition_id}"
       task_sdk.update_handler(handler_definition_id, {
@@ -496,66 +480,6 @@ space_sdk.find_kapps.content["kapps"].each do |kapp|
       "filter" => filter,
     })
   end
-end
-
-# Create a Discussion SDK connection for the requester user
-discussions_options = http_options.merge({
-  oauth_client_id: oauth_client_prod_bundle["clientId"],
-  oauth_client_secret: oauth_client_prod_bundle["clientSecret"],
-})
-discussions_sdk = KineticSdk::Discussions.new({
-  space_server_url: vars["core"]["server"],
-  space_slug: vars["core"]["space_slug"],
-  username: vars["core"]["service_user_username"],
-  password: vars["core"]["service_user_password"],
-  options: discussions_options,
-})
-
-# Keep track of which discussions to invite the requester to
-requester_discussion_ids = []
-
-# Create an 'All Company' discussion
-all_company_discussion = discussions_sdk.add_discussion({
-  "title" => "All Company",
-  "description" => "All Company Discussion",
-  "owningUsers" => [
-    { "username": vars["data"]["requesting_user"]["username"] },
-  ],
-}).content["discussion"]
-
-# Create an initial message in the 'All Company' discussion
-discussions_sdk.add_message(all_company_discussion["id"], "Welcome to kinops!!!")
-# Add the requester to the space discussion
-requester_discussion_ids.unshift(all_company_discussion["id"])
-
-# For each of the teams
-(space_sdk.find_teams.content["teams"] || []).each do |team|
-
-  # Skip if the team is a Role
-  next if team["name"].start_with?("Role::")
-
-  # Create a team discussion
-  discussion = discussions_sdk.add_discussion({
-    "title" => team["name"],
-    "description" => "#{team["name"]} Discussion",
-    "owningTeams" => [
-      { "name": team["name"] },
-    ],
-  }).content["discussion"]
-
-  # Create an initial message in the team discussion
-  discussions_sdk.add_message(discussion["id"], "Welcome to the #{team["name"]} Team!!!")
-  # Add the team as a related item to the discussion
-  discussions_sdk.add_related_item(discussion["id"], "Team", team["slug"])
-  # Add the requester to the team discussion
-  if ["Administrators", "Default"].include?(team["name"])
-    requester_discussion_ids.unshift(discussion["id"])
-  end
-end
-
-# Generate appropriate discussion invites for the requester
-requester_discussion_ids.each do |discussion_id|
-  discussions_sdk.add_invitation_by_username(discussion_id, vars["data"]["requesting_user"]["username"])
 end
 
 # re-enable webooks while provisioning requesting user / teams
