@@ -224,7 +224,6 @@ space_sdk.import_space(vars["core"]["space_slug"])
 
 # set space attributes
 space_attributes_map = {
-  "Discussion Id" => [""],
   "Task Server Scheme" => [URI(vars["task"]["server"]).scheme],
   "Task Server Host" => [URI(vars["task"]["server"]).host],
   "Task Server Space Slug" => [vars["task"]["space_slug"]],
@@ -526,8 +525,6 @@ all_company_discussion = discussions_sdk.add_discussion({
 
 # Create an initial message in the 'All Company' discussion
 discussions_sdk.add_message(all_company_discussion["id"], "Welcome to kinops!!!")
-# Set the value of the "Discussion Id" Space attribute
-space_sdk.add_space_attribute("Discussion Id", all_company_discussion["id"])
 # Add the requester to the space discussion
 requester_discussion_ids.unshift(all_company_discussion["id"])
 
@@ -550,8 +547,6 @@ requester_discussion_ids.unshift(all_company_discussion["id"])
   discussions_sdk.add_message(discussion["id"], "Welcome to the #{team["name"]} Team!!!")
   # Add the team as a related item to the discussion
   discussions_sdk.add_related_item(discussion["id"], "Team", team["slug"])
-  # Set the value of the "Discussion Id" Space attribute
-  space_sdk.add_team_attribute(team["name"], "Discussion Id", discussion["id"])
   # Add the requester to the team discussion
   if ["Administrators", "Default"].include?(team["name"])
     requester_discussion_ids.unshift(discussion["id"])

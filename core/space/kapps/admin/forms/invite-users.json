@@ -108,13 +108,6 @@
       "unique": false
     },
     {
-      "name": "values[Discussion Id]",
-      "parts": [
-        "values[Discussion Id]"
-      ],
-      "unique": false
-    },
-    {
       "name": "values[Observing Individuals]",
       "parts": [
         "values[Observing Individuals]"
@@ -354,26 +347,6 @@
               "label": "Requested By Display Name",
               "key": "f907",
               "defaultValue": "${identity('displayName')}",
-              "defaultResourceName": null,
-              "visible": true,
-              "enabled": true,
-              "required": false,
-              "requiredMessage": null,
-              "omitWhenHidden": null,
-              "pattern": null,
-              "constraints": [],
-              "events": [],
-              "renderAttributes": {},
-              "dataType": "string",
-              "renderType": "text",
-              "rows": 1
-            },
-            {
-              "type": "field",
-              "name": "Discussion Id",
-              "label": "Discussion Id",
-              "key": "f902",
-              "defaultValue": null,
               "defaultResourceName": null,
               "visible": true,
               "enabled": true,
