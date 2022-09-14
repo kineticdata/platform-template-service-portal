@@ -173,10 +173,6 @@
   "resetPasswordPage": null,
   "securityPolicies": [
     {
-      "endpoint": "Discussion Creation",
-      "name": "Authenticated Users"
-    },
-    {
       "endpoint": "Display",
       "name": "Authenticated Users"
     },

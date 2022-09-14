@@ -110,33 +110,6 @@ require "kinetic_sdk"
 # common
 # ------------------------------------------------------------------------------
 
-# oAuth client for production bundle
-oauth_client_prod_bundle = {
-  "name" => "Kinetic Bundle - #{vars["core"]["space_slug"]}",
-  "description" => "oAuth Client for #{vars["core"]["space_slug"]} client-side bundles",
-  "clientId" => "kinetic-bundle",
-  "clientSecret" => KineticSdk::Utils::Random.simple(16),
-  "redirectUri" => "#{vars["core"]["server"]}/#/OAuthCallback",
-}
-
-# oAuth client for development bundle
-oauth_client_dev_bundle = {
-  "name" => "Kinetic Bundle - Dev",
-  "description" => "oAuth Client for client-side bundles in development mode",
-  "clientId" => "kinetic-bundle-dev",
-  "clientSecret" => KineticSdk::Utils::Random.simple(16),
-  "redirectUri" => "http://localhost:3000/app/oauth/callback",
-}
-
-# oAuth client for service user
-oauth_client_service_user = {
-  "name" => vars["core"]["service_user_username"],
-  "description" => "oAuth Client for #{vars["core"]["service_user_username"]} user",
-  "clientId" => vars["core"]["service_user_username"],
-  "clientSecret" => vars["core"]["service_user_password"],
-  "redirectUri" => "#{vars["core"]["server"]}/#/OAuthCallback",
-}
-
 # task source configurations
 task_source_properties = {
   "Kinetic Request CE" => {
@@ -290,15 +263,6 @@ space_sdk.find_bridge_models.content["models"].each do |model|
     mapping.delete("bridgeName")
     mapping["bridgeSlug"] = "kinetic-core"
     space_sdk.update_bridge_model_mapping(model["name"], mapping["name"], mapping)
-  end
-end
-
-# create or update oAuth clients
-[oauth_client_prod_bundle, oauth_client_dev_bundle, oauth_client_service_user].each do |client|
-  if space_sdk.find_oauth_client(client["clientId"]).status == 404
-    space_sdk.add_oauth_client(client)
-  else
-    space_sdk.update_oauth_client(client["clientId"], client)
   end
 end
 
