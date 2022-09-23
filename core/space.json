@@ -1,5 +1,9 @@
 {
   "afterLogoutPath": "",
+  "allowedIps": [
+
+  ],
+  "allowedIpsEnabled": false,
   "attributes": [
     {
       "name": "Admin Kapp Slug",
@@ -159,7 +163,7 @@
   "defaultLocale": "en",
   "defaultTimezone": "America/Chicago",
   "displayType": "Single Page App",
-  "displayValue": "https://s3.amazonaws.com/kinops.io/bundles/default/releases/5.x.x/index.html",
+  "displayValue": "https://s3.amazonaws.com/bundles.kineticdata.com/message-refactor/1.0.0/build/index.html",
   "enabledLocales": [
     "en"
   ],

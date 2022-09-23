@@ -1,0 +1,69 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 1,
+  "name": "Submmission Updated",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_finish_v1_1",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "definitionId": "system_start_v1",
+      "id": "start",
+      "name": "Start",
+      "position": {
+        "x": 10.0,
+        "y": 10.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "parameters": [
+
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_finish_v1",
+      "id": "routine_kinetic_finish_v1_1",
+      "name": "Finish",
+      "position": {
+        "x": 242.0,
+        "y": 12.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Run Id",
+          "description": "The Id of the completed run",
+          "label": "Run Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "<%=@run['Id']%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    }
+  ]
+}

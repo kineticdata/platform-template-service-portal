@@ -1,0 +1,251 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 10,
+  "name": "User Created",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_user_password_reset_token_create_v1_7",
+      "label": "Not a kinops user",
+      "value": "@user['Username'].match(/.*@kinops.io$/).nil?",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_user_password_reset_token_create_v1_7",
+      "to": "routine_kinetic_email_template_notification_send_v1_9",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_email_template_notification_send_v1_9",
+      "to": "routine_kinetic_user_update_v1_8",
+      "label": "Has Guided Tour Attribute",
+      "value": "@user_profile_attributes.has_key?('Guided Tour')",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "definitionId": "system_start_v1",
+      "id": "start",
+      "name": "Start",
+      "position": {
+        "x": 10.0,
+        "y": 10.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "parameters": [
+
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_user_password_reset_token_create_v1",
+      "id": "routine_kinetic_user_password_reset_token_create_v1_7",
+      "name": "Generate Token",
+      "position": {
+        "x": 251.0,
+        "y": 37.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Username",
+          "description": "Username of the user to create a password reset token for",
+          "label": "Username",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @user['Username']%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_user_update_v1",
+      "id": "routine_kinetic_user_update_v1_8",
+      "name": "Add Guided Tour Profile Attributes",
+      "position": {
+        "x": 737.0,
+        "y": 69.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Current Username",
+          "description": "The User's current username",
+          "label": "Current Username",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @user['Username']%>"
+        },
+        {
+          "id": "Updated - Username",
+          "description": "The updated username - may be omitted",
+          "label": "Updated - Username",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Email",
+          "description": "The updated email address - may be omitted",
+          "label": "Updated - Email",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Display Name",
+          "description": "The updated name that is displayed for the user",
+          "label": "Updated - Display Name",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Attributes Map JSON",
+          "description": "Include only attributes that need to be updated",
+          "label": "Updated - Attributes Map JSON",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Profile Attributes Map JSON",
+          "description": "Include only profile attributes that need to be updated",
+          "label": "Updated - Profile Attributes Map JSON",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "<%={\n  \"Guided Tour\" => [\"Welcome Tour\",\"Services\",\"Queue\"]\n}.to_json%>"
+        },
+        {
+          "id": "Updated - Is Space Admin",
+          "description": "(True | False) Allows or disallows the user from being a super administrator",
+          "label": "Updated - Is Space Admin",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Is Enabled",
+          "description": "(True | False) Allows or disallows the user from being a super administrator",
+          "label": "Updated - Is Enabled",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_email_template_notification_send_v1",
+      "id": "routine_kinetic_email_template_notification_send_v1_9",
+      "name": "Send Welcome Email",
+      "position": {
+        "x": 532.0,
+        "y": 66.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Recipient List",
+          "description": "Comma separated list of recipients (Usernames, SMTP Addresses, and/or Team Names)",
+          "label": "Recipient List",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @user['Email']%>"
+        },
+        {
+          "id": "Notification Template Name",
+          "description": "Name of the notification template to use when sending this email",
+          "label": "Notification Template Name",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "Account Created"
+        },
+        {
+          "id": "JSON Variables",
+          "description": "JSON input of miscellaneous values.  These values are used to replace placeholder content in notification messages.",
+          "label": "JSON Variables",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "<%={\n    \"Email Link\"=> \"#{@space_attributes['Web Server Url']}/#/reset-password/#{@results['Generate Token']['Password Reset Token']}?#{URI.encode_www_form(\"u\" => @user['Username'])}\",\n    \"Company Name\" => \"#{@space['Name']}\",\n    \"Username\" => \"#{@user['Username']}\"\n     }.to_json %>"
+        },
+        {
+          "id": "Kapp Slug Initiating Notification",
+          "description": "The slug of the Kapp sending the notification (ex: catalog, queue, etc.)",
+          "label": "Kapp Slug Initiating Notification",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @space_attributes['Admin Kapp Slug']%>"
+        },
+        {
+          "id": "Related Submission Id",
+          "description": "Id of the submission to get values for, required if using those or attachments in the message",
+          "label": "Related Submission Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        }
+      ],
+      "messages": [
+
+      ]
+    }
+  ]
+}
