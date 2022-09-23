@@ -1,0 +1,109 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "matthew.howe@kineticdata.com",
+  "lastId": 10,
+  "name": "Saved",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_robot_execution_v2_10",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "definitionId": "system_start_v1",
+      "id": "start",
+      "name": "Start",
+      "position": {
+        "x": 10.0,
+        "y": 10.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "parameters": [
+
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_robot_execution_v2",
+      "id": "routine_kinetic_robot_execution_v2_10",
+      "name": "Initiate execution v2",
+      "position": {
+        "x": 292.3,
+        "y": 113.41667
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "space slug",
+          "description": "Space slug of the submission",
+          "label": "space slug",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @space['Slug']%>"
+        },
+        {
+          "id": "submission id",
+          "description": "Submission Id of the robot schedule record",
+          "label": "submission id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @submission['Id']%>"
+        },
+        {
+          "id": "start time",
+          "description": "The time from which the next schedule should be determined.  Usually the current time, unless this is for a new schedule.",
+          "label": "start time",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @values['Start Date']%>"
+        },
+        {
+          "id": "schedule update time",
+          "description": "Schedule update time (for the initial routine call), or current time (for subsequent calls).",
+          "label": "schedule update time",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @submission['Updated At']%>"
+        },
+        {
+          "id": "Initial Run",
+          "description": "Set to false when this routine calls itself; any other value when called the first time (when a submission is submitted or modified)",
+          "label": "Initial Run",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "True"
+        }
+      ],
+      "messages": [
+
+      ]
+    }
+  ]
+}

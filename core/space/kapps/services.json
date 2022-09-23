@@ -110,14 +110,6 @@
   "displayValue": "space.jsp",
   "fields": [
     {
-      "name": "Deferral Token",
-      "renderType": "text"
-    },
-    {
-      "name": "Requested By",
-      "renderType": "text"
-    },
-    {
       "name": "Assigned Individual",
       "renderType": "text"
     },
@@ -126,7 +118,15 @@
       "renderType": "text"
     },
     {
-      "name": "Status",
+      "name": "Deferral Token",
+      "renderType": "text"
+    },
+    {
+      "name": "Due Date",
+      "renderType": "text"
+    },
+    {
+      "name": "Requested By",
       "renderType": "text"
     },
     {
@@ -134,7 +134,7 @@
       "renderType": "text"
     },
     {
-      "name": "Due Date",
+      "name": "Status",
       "renderType": "text"
     }
   ],
@@ -164,13 +164,6 @@
       "name": "submittedBy",
       "parts": [
         "submittedBy"
-      ],
-      "unique": false
-    },
-    {
-      "name": "updatedBy",
-      "parts": [
-        "updatedBy"
       ],
       "unique": false
     },
@@ -239,6 +232,13 @@
       "parts": [
         "type",
         "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
       ],
       "unique": false
     },

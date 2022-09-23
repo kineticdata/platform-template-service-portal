@@ -46,14 +46,6 @@
   "displayValue": "space.jsp",
   "fields": [
     {
-      "name": "Deferral Token",
-      "renderType": "text"
-    },
-    {
-      "name": "Requested By",
-      "renderType": "text"
-    },
-    {
       "name": "Assigned Individual",
       "renderType": "text"
     },
@@ -62,7 +54,15 @@
       "renderType": "text"
     },
     {
-      "name": "Status",
+      "name": "Deferral Token",
+      "renderType": "text"
+    },
+    {
+      "name": "Due Date",
+      "renderType": "text"
+    },
+    {
+      "name": "Requested By",
       "renderType": "text"
     },
     {
@@ -70,7 +70,7 @@
       "renderType": "text"
     },
     {
-      "name": "Due Date",
+      "name": "Status",
       "renderType": "text"
     }
   ],
@@ -86,6 +86,14 @@
       "name": "createdBy",
       "parts": [
         "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy,values[Due Date]",
+      "parts": [
+        "createdBy",
+        "values[Due Date]"
       ],
       "unique": false
     },
@@ -126,6 +134,15 @@
       "unique": false
     },
     {
+      "name": "values[Assigned Individual],createdBy,values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
       "name": "values[Assigned Individual],values[Assigned Team]",
       "parts": [
         "values[Assigned Individual]",
@@ -139,6 +156,25 @@
         "values[Assigned Individual]",
         "values[Assigned Team]",
         "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],createdBy,values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Due Date]"
       ],
       "unique": false
     },
@@ -162,6 +198,35 @@
       "unique": false
     },
     {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Status],createdBy,values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Status]",
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Status],values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Status]",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
       "name": "values[Assigned Individual],values[Status]",
       "parts": [
         "values[Assigned Individual]",
@@ -175,6 +240,25 @@
         "values[Assigned Individual]",
         "values[Status]",
         "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Status],createdBy,values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Status]",
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Status],values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Status]",
+        "values[Due Date]"
       ],
       "unique": false
     },
@@ -194,6 +278,23 @@
       "unique": false
     },
     {
+      "name": "values[Assigned Team],createdBy,values[Due Date]",
+      "parts": [
+        "values[Assigned Team]",
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Due Date]",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
       "name": "values[Assigned Team],values[Status]",
       "parts": [
         "values[Assigned Team]",
@@ -207,6 +308,25 @@
         "values[Assigned Team]",
         "values[Status]",
         "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Status],createdBy,values[Due Date]",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Status]",
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Status],values[Due Date]",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Status]",
+        "values[Due Date]"
       ],
       "unique": false
     },
@@ -250,126 +370,6 @@
       "parts": [
         "values[Status]",
         "createdBy"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Assigned Individual],values[Due Date]",
-      "parts": [
-        "values[Assigned Individual]",
-        "values[Due Date]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Assigned Individual],values[Status],values[Due Date]",
-      "parts": [
-        "values[Assigned Individual]",
-        "values[Status]",
-        "values[Due Date]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Assigned Individual],values[Assigned Team],values[Due Date]",
-      "parts": [
-        "values[Assigned Individual]",
-        "values[Assigned Team]",
-        "values[Due Date]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Assigned Individual],createdBy,values[Due Date]",
-      "parts": [
-        "values[Assigned Individual]",
-        "createdBy",
-        "values[Due Date]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Assigned Individual],values[Assigned Team],values[Status],values[Due Date]",
-      "parts": [
-        "values[Assigned Individual]",
-        "values[Assigned Team]",
-        "values[Status]",
-        "values[Due Date]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Assigned Individual],values[Assigned Team],createdBy,values[Due Date]",
-      "parts": [
-        "values[Assigned Individual]",
-        "values[Assigned Team]",
-        "createdBy",
-        "values[Due Date]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Assigned Individual],values[Status],createdBy,values[Due Date]",
-      "parts": [
-        "values[Assigned Individual]",
-        "values[Status]",
-        "createdBy",
-        "values[Due Date]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Assigned Individual],values[Assigned Team],values[Status],createdBy,values[Due Date]",
-      "parts": [
-        "values[Assigned Individual]",
-        "values[Assigned Team]",
-        "values[Status]",
-        "createdBy",
-        "values[Due Date]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Assigned Team],values[Due Date]",
-      "parts": [
-        "values[Assigned Team]",
-        "values[Due Date]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Assigned Team],values[Status],values[Due Date]",
-      "parts": [
-        "values[Assigned Team]",
-        "values[Status]",
-        "values[Due Date]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Assigned Team],createdBy,values[Due Date]",
-      "parts": [
-        "values[Assigned Team]",
-        "createdBy",
-        "values[Due Date]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "values[Assigned Team],values[Status],createdBy,values[Due Date]",
-      "parts": [
-        "values[Assigned Team]",
-        "values[Status]",
-        "createdBy",
-        "values[Due Date]"
-      ],
-      "unique": false
-    },
-    {
-      "name": "createdBy,values[Due Date]",
-      "parts": [
-        "createdBy",
-        "values[Due Date]"
       ],
       "unique": false
     },
