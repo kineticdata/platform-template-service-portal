@@ -1,0 +1,171 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 10,
+  "name": "Team Deleted",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_users_retrieve_list_v1_7",
+      "label": "default team",
+      "value": "@team['Name'] == \"Default\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_users_retrieve_list_v1_7",
+      "to": "routine_kinetic_team_create_v1_9",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_team_create_v1_9",
+      "to": "routine_kinetic_finish_v1_10",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "definitionId": "system_start_v1",
+      "id": "start",
+      "name": "Start",
+      "position": {
+        "x": 451.0,
+        "y": -99.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "parameters": [
+
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_users_retrieve_list_v1",
+      "id": "routine_kinetic_users_retrieve_list_v1_7",
+      "name": "Retrieve All Users",
+      "position": {
+        "x": 451.0,
+        "y": 0.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Query",
+          "description": "Query to use to fetch users. All users fetched when left blank",
+          "label": "Query",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "spaceAdmin=\"true\""
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_team_create_v1",
+      "id": "routine_kinetic_team_create_v1_9",
+      "name": "Rereate Default Team",
+      "position": {
+        "x": 451.0,
+        "y": 110.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Name",
+          "description": "The teams name",
+          "label": "Name",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "Default"
+        },
+        {
+          "id": "Description",
+          "description": "The teams description",
+          "label": "Description",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Attributes Map JSON",
+          "description": "JSON representation of the attributes associated to the team",
+          "label": "Attributes Map JSON",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Memberships List JSON",
+          "description": "A JSON array of usernames to be added as team members (ie. ['john.doe', 'jane.doe'])",
+          "label": "Memberships List JSON",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "<%=\nusers = JSON.parse(@results['Retrieve All Users']['Users List JSON'])\nusers.map{|user| user['username']}.to_json%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_finish_v1",
+      "id": "routine_kinetic_finish_v1_10",
+      "name": "Finish",
+      "position": {
+        "x": 450.0,
+        "y": 231.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Run Id",
+          "description": "The Id of the completed run",
+          "label": "Run Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "<%=@run['Id']%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    }
+  ]
+}

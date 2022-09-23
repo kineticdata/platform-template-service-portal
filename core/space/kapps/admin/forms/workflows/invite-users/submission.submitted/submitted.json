@@ -1,0 +1,725 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 25,
+  "name": "Submitted",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_submission_update_status_v1_20",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "utility_json_to_xml_v1_1",
+      "to": "system_loop_head_v1_2",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_2",
+      "to": "system_loop_tail_v1_3",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_2",
+      "to": "utilities_echo_v1_4",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_tail_v1_3",
+      "to": "routine_kinetic_submission_update_status_v1_23",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "utilities_echo_v1_4",
+      "to": "routine_kinetic_user_create_v1_21",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "utility_json_to_xml_v1_7",
+      "to": "system_loop_head_v1_8",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_8",
+      "to": "system_loop_tail_v1_9",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_8",
+      "to": "routine_kinetic_team_membership_create_v1_22",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_tail_v1_9",
+      "to": "system_loop_tail_v1_3",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_update_status_v1_20",
+      "to": "utility_json_to_xml_v1_1",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_user_create_v1_21",
+      "to": "utility_json_to_xml_v1_7",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_team_membership_create_v1_22",
+      "to": "system_loop_tail_v1_9",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_update_status_v1_23",
+      "to": "routine_kinetic_submission_update_v1_24",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_update_v1_24",
+      "to": "routine_kinetic_finish_v1_25",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "definitionId": "system_start_v1",
+      "id": "start",
+      "name": "Start",
+      "position": {
+        "x": 264.0,
+        "y": 37.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "parameters": [
+
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "utility_json_to_xml_v1",
+      "id": "utility_json_to_xml_v1_1",
+      "name": "JSON to XML",
+      "position": {
+        "x": 455.0,
+        "y": 134.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": true,
+      "parameters": [
+        {
+          "id": "json",
+          "description": "The JSON String to be converted to XML",
+          "label": "JSON",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @values['Users JSON']%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "system_loop_head_v1",
+      "id": "system_loop_head_v1_2",
+      "name": "Loop Head",
+      "position": {
+        "x": 616.0,
+        "y": 143.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "data_source",
+          "description": "The source that contains the data to use to create each task in the loop.",
+          "label": "Data Source:",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%=@results['JSON to XML']['XML']%>"
+        },
+        {
+          "id": "loop_path",
+          "description": "The XPath statement to indicate what data records to process.",
+          "label": "Loop Path:",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "//node/node[@name='email']"
+        },
+        {
+          "id": "var_name",
+          "description": "The local variable name used to represent the data used in loop tasks.",
+          "label": "Variable Name:",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "user"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "system_loop_tail_v1",
+      "id": "system_loop_tail_v1_3",
+      "name": "Loop Tail",
+      "position": {
+        "x": 605.0,
+        "y": 382.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "type",
+          "description": "How many loop processes must be completed before continuing?",
+          "label": "Type:",
+          "menu": "All,Some,Any",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "All"
+        },
+        {
+          "id": "number",
+          "description": "If some, how many?",
+          "label": "Number:",
+          "menu": "",
+          "dependsOnId": "type",
+          "dependsOnValue": "Some",
+          "required": false,
+          "value": ""
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "utilities_echo_v1",
+      "id": "utilities_echo_v1_4",
+      "name": "User JSON",
+      "position": {
+        "x": 616.0,
+        "y": 43.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": true,
+      "parameters": [
+        {
+          "id": "input",
+          "description": "",
+          "label": "Input",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%=users = JSON.parse(@values['Users JSON'])\n  users[@results['Loop Head']['Index']].to_json\n%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "utility_json_to_xml_v1",
+      "id": "utility_json_to_xml_v1_7",
+      "name": "Teams",
+      "position": {
+        "x": 1067.0,
+        "y": 143.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": true,
+      "parameters": [
+        {
+          "id": "json",
+          "description": "The JSON String to be converted to XML",
+          "label": "JSON",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= \n  teams = JSON.parse(@results['User JSON']['output'])['teams'] || []\n  teams.to_json\n%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "system_loop_head_v1",
+      "id": "system_loop_head_v1_8",
+      "name": "Team Loop Head",
+      "position": {
+        "x": 1063.0,
+        "y": 227.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "data_source",
+          "description": "The source that contains the data to use to create each task in the loop.",
+          "label": "Data Source:",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%=@results['Teams']['XML']%>"
+        },
+        {
+          "id": "loop_path",
+          "description": "The XPath statement to indicate what data records to process.",
+          "label": "Loop Path:",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "//node/node"
+        },
+        {
+          "id": "var_name",
+          "description": "The local variable name used to represent the data used in loop tasks.",
+          "label": "Variable Name:",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "team"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "system_loop_tail_v1",
+      "id": "system_loop_tail_v1_9",
+      "name": "Team Loop Tail",
+      "position": {
+        "x": 924.0,
+        "y": 363.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "type",
+          "description": "How many loop processes must be completed before continuing?",
+          "label": "Type:",
+          "menu": "All,Some,Any",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "All"
+        },
+        {
+          "id": "number",
+          "description": "If some, how many?",
+          "label": "Number:",
+          "menu": "",
+          "dependsOnId": "type",
+          "dependsOnValue": "Some",
+          "required": false,
+          "value": ""
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_submission_update_status_v1",
+      "id": "routine_kinetic_submission_update_status_v1_20",
+      "name": "Set Status - In Progress",
+      "position": {
+        "x": 265.0,
+        "y": 131.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Submission Id",
+          "description": "Id of the Submission that is being updated",
+          "label": "Submission Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @submission['Id']%>"
+        },
+        {
+          "id": "Status",
+          "description": "Status to set the submission to. (e.g. Submitted, In Progress)",
+          "label": "Status",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "In Progress"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_user_create_v1",
+      "id": "routine_kinetic_user_create_v1_21",
+      "name": "Create User",
+      "position": {
+        "x": 1066.0,
+        "y": 44.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Username",
+          "description": "The value the User will use to login to the application",
+          "label": "Username",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%=JSON.parse(@results['User JSON']['output'])['email']%>"
+        },
+        {
+          "id": "Email",
+          "description": "The email address to send notifications to the user",
+          "label": "Email",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%=JSON.parse(@results['User JSON']['output'])['email']%>"
+        },
+        {
+          "id": "Display Name",
+          "description": "The name that is displayed for the user",
+          "label": "Display Name",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%=JSON.parse(@results['User JSON']['output'])['email']%>"
+        },
+        {
+          "id": "Attributes Map JSON",
+          "description": "JSON representation of the attributes associated to the user",
+          "label": "Attributes Map JSON",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "{\"Invited By\":[\"<%= @values['Requested By Display Name']%>\"]}"
+        },
+        {
+          "id": "Profile Attributes Map JSON",
+          "description": "JSON representation of the profile attributes associated to the user",
+          "label": "Profile Attributes Map JSON",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Is Space Admin",
+          "description": "(True | False) Whether the user is a super administrator user",
+          "label": "Is Space Admin",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "<%=JSON.parse(@results['User JSON']['output'])['spaceAdmin']%>"
+        },
+        {
+          "id": "Is Enabled",
+          "description": "(True | False) Whether the user is enabled",
+          "label": "Is Enabled",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_team_membership_create_v1",
+      "id": "routine_kinetic_team_membership_create_v1_22",
+      "name": "Add Team",
+      "position": {
+        "x": 1178.0,
+        "y": 371.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Team Name",
+          "description": "The name the team to add the user to",
+          "label": "Team Name",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%=@team%>"
+        },
+        {
+          "id": "Username",
+          "description": "",
+          "label": "Username",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%=JSON.parse(@results['User JSON']['output'])['email']%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_submission_update_status_v1",
+      "id": "routine_kinetic_submission_update_status_v1_23",
+      "name": "Set Status - Completed",
+      "position": {
+        "x": 605.0,
+        "y": 462.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Submission Id",
+          "description": "Id of the Submission that is being updated",
+          "label": "Submission Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @submission['Id']%>"
+        },
+        {
+          "id": "Status",
+          "description": "Status to set the submission to. (e.g. Submitted, In Progress)",
+          "label": "Status",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "Completed"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_submission_update_v1",
+      "id": "routine_kinetic_submission_update_v1_24",
+      "name": "Close",
+      "position": {
+        "x": 606.0,
+        "y": 551.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Id",
+          "description": "The id of the submission to update",
+          "label": "Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @submission['Id']%>"
+        },
+        {
+          "id": "Updated - Core State",
+          "description": "The submissions core state",
+          "label": "Updated - Core State",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "Closed"
+        },
+        {
+          "id": "Updated - Current Page Name",
+          "description": "The page to set the submission to",
+          "label": "Updated - Current Page Name",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Current Page Navigation",
+          "description": "The direction of the next page (next or previous)",
+          "label": "Updated - Current Page Navigation",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Origin Id",
+          "description": "The Id of the submissions origin",
+          "label": "Updated - Origin Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Parent Id",
+          "description": "The Id of the submissions parent",
+          "label": "Updated - Parent Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Values JSON",
+          "description": "A JSON representation of the submissions values",
+          "label": "Updated - Values JSON",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_finish_v1",
+      "id": "routine_kinetic_finish_v1_25",
+      "name": "Finish",
+      "position": {
+        "x": 605.0,
+        "y": 616.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Run Id",
+          "description": "The Id of the completed run",
+          "label": "Run Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "<%=@run['Id']%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    }
+  ]
+}

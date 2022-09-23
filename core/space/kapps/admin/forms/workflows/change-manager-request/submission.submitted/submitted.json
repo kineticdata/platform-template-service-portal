@@ -1,0 +1,562 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 41,
+  "name": "Submitted",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_admin_kapp_submission_config_v1_33",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_junction_v1_18",
+      "to": "routine_kinetic_submission_update_status_v1_41",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_admin_kapp_submission_config_v1_33",
+      "to": "routine_kinetic_submission_update_status_v1_40",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_team_retrieve_v1_34",
+      "to": "system_junction_v1_18",
+      "label": "Team Doesn't Exist",
+      "value": "@results['Retrieve Team']['Exists'].to_s.downcase != \"true\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_team_retrieve_v1_34",
+      "to": "routine_kinetic_solutions_service_portal_submission_approval_v1_35",
+      "label": "Team Exists",
+      "value": "@results['Retrieve Team']['Exists'].to_s.downcase == \"true\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_solutions_service_portal_submission_approval_v1_35",
+      "to": "system_junction_v1_18",
+      "label": "Denied",
+      "value": "@results['Approval']['Decision'] != \"Approved\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_solutions_service_portal_submission_approval_v1_35",
+      "to": "routine_kinetic_user_update_v1_38",
+      "label": "Approved",
+      "value": "@results['Approval']['Decision'] == \"Approved\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_update_v1_36",
+      "to": "routine_kinetic_finish_v1_37",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_user_update_v1_38",
+      "to": "system_junction_v1_18",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_update_status_v1_40",
+      "to": "routine_kinetic_team_retrieve_v1_34",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_update_status_v1_41",
+      "to": "routine_kinetic_submission_update_v1_36",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "definitionId": "system_start_v1",
+      "id": "start",
+      "name": "Start",
+      "position": {
+        "x": 198.0,
+        "y": 21.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "parameters": [
+
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "system_junction_v1",
+      "id": "system_junction_v1_18",
+      "name": "Junction",
+      "position": {
+        "x": 563.0,
+        "y": 348.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "parameters": [
+
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_admin_kapp_submission_config_v1",
+      "id": "routine_kinetic_admin_kapp_submission_config_v1_33",
+      "name": "Get Config",
+      "position": {
+        "x": 201.0,
+        "y": 89.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Source Data",
+          "description": "Submission Source Data Used to Build Configuration",
+          "label": "Source Data",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "<%=@source['Data']%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_team_retrieve_v1",
+      "id": "routine_kinetic_team_retrieve_v1_34",
+      "name": "Retrieve Team",
+      "position": {
+        "x": 208.0,
+        "y": 286.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Name",
+          "description": "The Teams name",
+          "label": "Name",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @values['Team Name']%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_solutions_service_portal_submission_approval_v1",
+      "id": "routine_kinetic_solutions_service_portal_submission_approval_v1_35",
+      "name": "Approval",
+      "position": {
+        "x": 746.0,
+        "y": 116.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Approver",
+          "description": "Options are \"Manager\", a username, or a team name",
+          "label": "Approver",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @values['Team Name']%>"
+        },
+        {
+          "id": "Approval Form Slug",
+          "description": "The Slug of the Queue form to create an approval in",
+          "label": "Approval Form Slug",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%=@results['Get Config']['Approval Form Slug']%>"
+        },
+        {
+          "id": "Details",
+          "description": "A description of what is being approved ",
+          "label": "Details",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%=@results['Get Config']['Fulfillment Details']%>"
+        },
+        {
+          "id": "Originating Submission Id",
+          "description": "The Id of the originating submission",
+          "label": "Originating Submission Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @submission['Id']%>"
+        },
+        {
+          "id": "Service Days Due",
+          "description": "Number of Days until the submission is due to be completed",
+          "label": "Service Days Due",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%=@results['Get Config']['Service Days Due']%>"
+        },
+        {
+          "id": "Queue Kapp Slug",
+          "description": "The Slug of the Kapp in which this approval should be created",
+          "label": "Queue Kapp Slug",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%=@results['Get Config']['Queue Kapp Slug']%>"
+        },
+        {
+          "id": "Summary",
+          "description": "A summary of what is being approved",
+          "label": "Summary",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @values['Requested By']%> has asked to have their manager changed to <%= @values['Manager Name']%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_submission_update_v1",
+      "id": "routine_kinetic_submission_update_v1_36",
+      "name": "Close Submission",
+      "position": {
+        "x": 560.0,
+        "y": 520.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Id",
+          "description": "The id of the submission to update",
+          "label": "Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @submission['Id']%>"
+        },
+        {
+          "id": "Updated - Core State",
+          "description": "The submissions core state",
+          "label": "Updated - Core State",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "Closed"
+        },
+        {
+          "id": "Updated - Current Page",
+          "description": "The submissions current page",
+          "label": "Updated - Current Page",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Origin Id",
+          "description": "The Id of the submissions origin",
+          "label": "Updated - Origin Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Parent Id",
+          "description": "The Id of the submissions parent",
+          "label": "Updated - Parent Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Values JSON",
+          "description": "A JSON representation of the submissions values",
+          "label": "Updated - Values JSON",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_finish_v1",
+      "id": "routine_kinetic_finish_v1_37",
+      "name": "Finish",
+      "position": {
+        "x": 559.0,
+        "y": 615.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Run Id",
+          "description": "The Id of the completed run",
+          "label": "Run Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "<%=@run['Id']%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_user_update_v1",
+      "id": "routine_kinetic_user_update_v1_38",
+      "name": "Update User",
+      "position": {
+        "x": 948.0,
+        "y": 329.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Current Username",
+          "description": "The User's current username",
+          "label": "Current Username",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @submission['Submitted By']%>"
+        },
+        {
+          "id": "Updated - Username",
+          "description": "The updated username - may be omitted",
+          "label": "Updated - Username",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Email",
+          "description": "The updated email address - may be omitted",
+          "label": "Updated - Email",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Display Name",
+          "description": "The updated name that is displayed for the user",
+          "label": "Updated - Display Name",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Attributes Map JSON",
+          "description": "Include only attributes that need to be updated",
+          "label": "Updated - Attributes Map JSON",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "<%={\n\"Manager\" => [@values['Manager Name']]\n}.to_json%>"
+        },
+        {
+          "id": "Updated - Profile Attributes Map JSON",
+          "description": "Include only profile attributes that need to be updated",
+          "label": "Updated - Profile Attributes Map JSON",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Is Space Admin",
+          "description": "(True | False) Allows or disallows the user from being a super administrator",
+          "label": "Updated - Is Space Admin",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Is Enabled",
+          "description": "(True | False) Allows or disallows the user from being a super administrator",
+          "label": "Updated - Is Enabled",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_submission_update_status_v1",
+      "id": "routine_kinetic_submission_update_status_v1_40",
+      "name": "Status - Submitted",
+      "position": {
+        "x": 200.0,
+        "y": 166.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Submission Id",
+          "description": "Id of the Submission that is being updated",
+          "label": "Submission Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @submission['Id']%>"
+        },
+        {
+          "id": "Status",
+          "description": "Status to set the submission to. (e.g. Submitted, In Progress)",
+          "label": "Status",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "Submitted"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_submission_update_status_v1",
+      "id": "routine_kinetic_submission_update_status_v1_41",
+      "name": "Status - Completed",
+      "position": {
+        "x": 561.0,
+        "y": 417.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Submission Id",
+          "description": "Id of the Submission that is being updated",
+          "label": "Submission Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @submission['Id']%>"
+        },
+        {
+          "id": "Status",
+          "description": "Status to set the submission to. (e.g. Submitted, In Progress)",
+          "label": "Status",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%=@results['Approval']['Decision'] == \"Denied\" ? \"Denied\" : \"Completed\"%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    }
+  ]
+}

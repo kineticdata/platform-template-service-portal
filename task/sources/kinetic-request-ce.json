@@ -11,7 +11,7 @@
     }
   ],
   "properties": {
-    "Proxy Username": "integration-user",
+    "Proxy Username": "space-integration-user",
     "Web Server": "https://service-portal-template.kinops.io",
     "Space Slug": ""
   }

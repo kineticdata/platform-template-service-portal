@@ -30,7 +30,9 @@
           "direction": "asc"
         }
       ],
-      "parameters": [],
+      "parameters": [
+
+      ],
       "qualification": "All Roles",
       "status": "Active"
     },
@@ -43,7 +45,9 @@
           "direction": "asc"
         }
       ],
-      "parameters": [],
+      "parameters": [
+
+      ],
       "qualification": "All Teams",
       "status": "Active"
     },
@@ -56,12 +60,16 @@
           "direction": "asc"
         }
       ],
-      "parameters": [],
+      "parameters": [
+
+      ],
       "qualification": "All",
       "status": "Active"
     }
   ],
-  "categorizations": [],
+  "categorizations": [
+
+  ],
   "customHeadContent": "<style>\n  .modal-dialog {\n   max-width: 60%; \n  }\n</style>",
   "description": "Form used for inviting others to the system.",
   "indexDefinitions": [
@@ -179,7 +187,9 @@
           "title": null,
           "visible": true,
           "omitWhenHidden": null,
-          "renderAttributes": {},
+          "renderAttributes": {
+
+          },
           "elements": [
             {
               "type": "content",
@@ -187,7 +197,9 @@
               "name": "Add Users Tables",
               "text": "<div id=\"inviteUsersContainer\" class=\"section\">\n  <h3 class=\"text-center\">Invite others to kinops</h3>\n  <p class=\"text-center\">\n    The form below will help you quickly invite your teammates to join kinops.\n    <br />\n    <br />\n    <strong>Note:</strong> You only need to provide an email address to invite\n    someone. They can configure their profiles once they sign in. Configuring\n    someone as a \"Space Admin\" will give them full admin access to the system.\n  </p>\n  <br />\n  <div class=\"message\" />\n  <br />\n  <div class=\"row clearfix\">\n    <div class=\"col-md-12 column\">\n      <table class=\"table table-bordered table-hover\" id=\"new-users\">\n        <thead>\n          <tr>\n            <th class=\"text-center\">\n              Email <small>(required)</small>\n            </th>\n            <th class=\"text-center\">Roles</th>\n            <th class=\"text-center\">Teams</th>\n            <th class=\"text-center\">Space Admin</th>\n            <th />\n          </tr>\n        </thead>\n        <tbody />\n      </table>\n    </div>\n  </div>\n</div>",
               "visible": true,
-              "renderAttributes": {}
+              "renderAttributes": {
+
+              }
             }
           ]
         },
@@ -198,7 +210,9 @@
           "title": "Questions",
           "visible": false,
           "omitWhenHidden": true,
-          "renderAttributes": {},
+          "renderAttributes": {
+
+          },
           "elements": [
             {
               "type": "field",
@@ -213,9 +227,15 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [],
-              "events": [],
-              "renderAttributes": {},
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -240,7 +260,9 @@
               "visible": true,
               "enabled": true,
               "renderType": "custom",
-              "renderAttributes": {},
+              "renderAttributes": {
+
+              },
               "events": [
                 {
                   "name": "Validate and Submit",
@@ -259,7 +281,9 @@
           "title": "Hidden System Questions Do Not Delete",
           "visible": false,
           "omitWhenHidden": false,
-          "renderAttributes": {},
+          "renderAttributes": {
+
+          },
           "elements": [
             {
               "type": "field",
@@ -274,9 +298,15 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [],
-              "events": [],
-              "renderAttributes": {},
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -294,9 +324,15 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [],
-              "events": [],
-              "renderAttributes": {},
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -314,9 +350,15 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [],
-              "events": [],
-              "renderAttributes": {},
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -334,9 +376,15 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [],
-              "events": [],
-              "renderAttributes": {},
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -354,9 +402,15 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [],
-              "events": [],
-              "renderAttributes": {},
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -374,14 +428,22 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [],
-              "events": [],
-              "renderAttributes": {},
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
               "dataType": "json",
               "renderType": "checkbox",
               "choicesResourceName": null,
               "choicesRunIf": null,
-              "choices": []
+              "choices": [
+
+              ]
             },
             {
               "type": "field",
@@ -396,14 +458,22 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [],
-              "events": [],
-              "renderAttributes": {},
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
               "dataType": "json",
               "renderType": "checkbox",
               "choicesResourceName": null,
               "choicesRunIf": null,
-              "choices": []
+              "choices": [
+
+              ]
             },
             {
               "type": "field",
@@ -418,9 +488,15 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [],
-              "events": [],
-              "renderAttributes": {},
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
               "dataType": "string",
               "renderType": "text",
               "rows": 1

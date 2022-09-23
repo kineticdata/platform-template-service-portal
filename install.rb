@@ -3,13 +3,6 @@
 # Format with example values:
 #
 # {
-#   "agent" => {
-#     "component_type" => "agent",
-#     "bridge_api" => "/app/api/v1/bridges",
-#     "bridge_path" => "/app/api/v1/bridges/bridges/kinetic-core",
-#     "bridge_slug" => "kinetic-core",
-#     "filestore_api" => "/app/api/v1/filestores"
-#   },
 #   "core" => {
 #     "api" => "http://localhost:8080/kinetic/app/api/v1",
 #     "agent_api" => "http://localhost:8080/kinetic/foo/app/components/agent/app/api/v1",
@@ -105,6 +98,7 @@ logger.info "Installing gems for the \"#{template_name}\" template."
 Dir.chdir(platform_template_path) { system("bundle", "install") }
 
 require "kinetic_sdk"
+require File.join(File.expand_path(File.dirname(__FILE__)), "workflows.rb")
 
 # ------------------------------------------------------------------------------
 # common
@@ -224,38 +218,6 @@ Dir["#{core_path}/**/*.ndjson"].sort.each do |filename|
   end
 end
 
-# update kinetic task webhook endpoints to point to the correct task server
-space_sdk.find_webhooks_on_space.content["webhooks"].each do |webhook|
-  url = webhook["url"]
-  # if the webhook contains a kinetic task endpoint
-  if url.include?("/kinetic-task/app/api/v1")
-    # replace the server/host portion
-    apiIndex = url.index("/app/api/v1")
-    url = url.sub(url.slice(0..apiIndex - 1), vars["task"]["server"])
-    # update the webhook
-    space_sdk.update_webhook_on_space(webhook["name"], {
-      "url" => url,
-      "authStrategy" => {},
-    })
-  end
-end
-space_sdk.find_kapps.content["kapps"].each do |kapp|
-  space_sdk.find_webhooks_on_kapp(kapp["slug"]).content["webhooks"].each do |webhook|
-    url = webhook["url"]
-    # if the webhook contains a kinetic task endpoint
-    if url.include?("/kinetic-task/app/api/v1")
-      # replace the server/host portion
-      apiIndex = url.index("/app/api/v1")
-      url = url.sub(url.slice(0..apiIndex - 1), vars["task"]["server"])
-      # update the webhook
-      space_sdk.update_webhook_on_kapp(kapp["slug"], webhook["name"], {
-        "url" => url,
-        "authStrategy" => {},
-      })
-    end
-  end
-end
-
 # update each bridge model mapping with the corresponding bridge in the agent platform component
 space_sdk.find_bridge_models.content["models"].each do |model|
   exported_model = space_sdk.find_bridge_model(model["name"], { "export" => true }).content["model"]
@@ -321,12 +283,6 @@ Dir["#{task_path}/sources/*.json"].each do |file|
   # add or update the source
   not_installed ? task_sdk.add_source(required_source) : task_sdk.update_source(required_source)
 end
-
-task_sdk.import_routines(true)
-task_sdk.import_categories
-
-# import trees and force overwrite
-task_sdk.import_trees(true)
 
 # configure handler info values
 task_sdk.find_handlers.content["handlers"].each do |handler|
@@ -399,10 +355,23 @@ end
 
 # update the engine properties
 task_sdk.update_engine({
-  "Max Threads" => "2",
+  "Max Threads" => "5",
   "Sleep Delay" => "1",
   "Trigger Query" => "'Selection Criterion'=null",
 })
+
+# import routines and force overwrite
+task_sdk.import_routines(true)
+
+# import categories
+task_sdk.import_categories
+
+# import trees and force overwrite
+task_sdk.import_trees(true)
+
+# import workflows
+import_workflows(core_path, space_sdk)
+
 
 # ------------------------------------------------------------------------------
 # service portal specific
@@ -428,38 +397,6 @@ if (vars["data"]["requesting_user"])
     ],
     "profileAttributesMap" => { "Guided Tour" => ["Welcome Tour", "Services", "Queue"] },
   })
-end
-
-# temporarily disable webooks while provisioning requesting user / teams
-space_sdk.find_webhooks_on_space.content["webhooks"].each do |webhook|
-  filter = webhook["filter"].empty? ? "false" : "false && #{webhook["filter"]}"
-  space_sdk.update_webhook_on_space(webhook["name"], {
-    "filter" => filter,
-  })
-end
-space_sdk.find_kapps.content["kapps"].each do |kapp|
-  space_sdk.find_webhooks_on_kapp(kapp["slug"]).content["webhooks"].each do |webhook|
-    filter = webhook["filter"].empty? ? "false" : "false && #{webhook["filter"]}"
-    space_sdk.update_webhook_on_kapp(kapp["slug"], webhook["name"], {
-      "filter" => filter,
-    })
-  end
-end
-
-# re-enable webooks while provisioning requesting user / teams
-space_sdk.find_webhooks_on_space.content["webhooks"].each do |webhook|
-  filter = webhook["filter"].start_with?("false && ") ? webhook["filter"].gsub("false && ", "") : ""
-  space_sdk.update_webhook_on_space(webhook["name"], {
-    "filter" => filter,
-  })
-end
-space_sdk.find_kapps.content["kapps"].each do |kapp|
-  space_sdk.find_webhooks_on_kapp(kapp["slug"]).content["webhooks"].each do |webhook|
-    filter = webhook["filter"].start_with?("false && ") ? webhook["filter"].gsub("false && ", "") : ""
-    space_sdk.update_webhook_on_kapp(kapp["slug"], webhook["name"], {
-      "filter" => filter,
-    })
-  end
 end
 
 # ------------------------------------------------------------------------------

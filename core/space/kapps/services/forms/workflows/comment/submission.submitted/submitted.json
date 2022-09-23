@@ -1,0 +1,241 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 35,
+  "name": "Submitted",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_submission_activity_create_v1_31",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_update_v1_30",
+      "to": "routine_kinetic_finish_v1_33",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_activity_create_v1_31",
+      "to": "routine_kinetic_submission_update_v1_30",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "definitionId": "system_start_v1",
+      "id": "start",
+      "name": "Start",
+      "position": {
+        "x": 133.0,
+        "y": 66.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "parameters": [
+
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_submission_update_v1",
+      "id": "routine_kinetic_submission_update_v1_30",
+      "name": "Close Submission",
+      "position": {
+        "x": 374.0,
+        "y": 485.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Id",
+          "description": "The id of the submission to update",
+          "label": "Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @submission['Id']%>"
+        },
+        {
+          "id": "Updated - Core State",
+          "description": "The submissions core state",
+          "label": "Updated - Core State",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "Closed"
+        },
+        {
+          "id": "Updated - Current Page Name",
+          "description": "The page to set the submission to",
+          "label": "Updated - Current Page Name",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Current Page Navigation",
+          "description": "The direction of the next page (next or previous)",
+          "label": "Updated - Current Page Navigation",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Origin Id",
+          "description": "The Id of the submissions origin",
+          "label": "Updated - Origin Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Parent Id",
+          "description": "The Id of the submissions parent",
+          "label": "Updated - Parent Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "Updated - Values JSON",
+          "description": "A JSON representation of the submissions values",
+          "label": "Updated - Values JSON",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": ""
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_submission_activity_create_v1",
+      "id": "routine_kinetic_submission_activity_create_v1_31",
+      "name": "Create Activity Record - Comment",
+      "position": {
+        "x": 375.0,
+        "y": 351.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Submission Id",
+          "description": "Id of the submission to create the activity record for",
+          "label": "Submission Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": true,
+          "value": "<%= @values['Related Submission Id']%>"
+        },
+        {
+          "id": "Data",
+          "description": "Data to store in the submission activity",
+          "label": "Data",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "<%={\n  \"Comment\" => @values['Comment']\n}.to_json%>"
+        },
+        {
+          "id": "Description",
+          "description": "Description of the submission activity",
+          "label": "Description",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "Comment added by <%= @submission['Submitted By']%>"
+        },
+        {
+          "id": "Label",
+          "description": "Label for the submission activity",
+          "label": "Label",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "Comment added by <%= @submission['Submitted By']%>"
+        },
+        {
+          "id": "Type",
+          "description": "Type of submission activity",
+          "label": "Type",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "Comment"
+        }
+      ],
+      "messages": [
+
+      ]
+    },
+    {
+      "definitionId": "routine_kinetic_finish_v1",
+      "id": "routine_kinetic_finish_v1_33",
+      "name": "Finish",
+      "position": {
+        "x": 375.0,
+        "y": 584.0
+      },
+      "version": 1,
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "parameters": [
+        {
+          "id": "Run Id",
+          "description": "The Id of the completed run",
+          "label": "Run Id",
+          "menu": "",
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "required": false,
+          "value": "<%=@run['Id']%>"
+        }
+      ],
+      "messages": [
+
+      ]
+    }
+  ]
+}
