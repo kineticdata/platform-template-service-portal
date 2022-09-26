@@ -79,6 +79,7 @@ logger.info "Installing gems for the \"#{template_name}\" template."
 Dir.chdir(platform_template_path) { system("bundle", "install") }
 
 require 'kinetic_sdk'
+require File.join(File.expand_path(File.dirname(__FILE__)), "workflows.rb")
 
 http_options = (vars["http_options"] || {}).each_with_object({}) do |(k,v),result|
   result[k.to_sym] = v
@@ -113,7 +114,6 @@ logger.info "   - exporting configuration data (Kapps,forms, etc)"
 space_sdk.export_space
 
 # export workflows as these are not included in the export_space method
-require File.join(File.expand_path(File.dirname(__FILE__)), "workflows.rb")
 export_workflows(core_path, space_sdk, task_sdk)
 
 # cleanup properties that should not be committed with export

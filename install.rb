@@ -98,6 +98,7 @@ logger.info "Installing gems for the \"#{template_name}\" template."
 Dir.chdir(platform_template_path) { system("bundle", "install") }
 
 require "kinetic_sdk"
+require File.join(File.expand_path(File.dirname(__FILE__)), "workflows.rb")
 
 # ------------------------------------------------------------------------------
 # common
@@ -283,16 +284,6 @@ Dir["#{task_path}/sources/*.json"].each do |file|
   not_installed ? task_sdk.add_source(required_source) : task_sdk.update_source(required_source)
 end
 
-task_sdk.import_routines(true)
-task_sdk.import_categories
-
-# import trees and force overwrite
-task_sdk.import_trees(true)
-
-# import workflows
-require File.join(File.expand_path(File.dirname(__FILE__)), "workflows.rb")
-import_workflows(core_path, space_sdk)
-
 # configure handler info values
 task_sdk.find_handlers.content["handlers"].each do |handler|
   handler_definition_id = handler["definitionId"]
@@ -364,10 +355,23 @@ end
 
 # update the engine properties
 task_sdk.update_engine({
-  "Max Threads" => "2",
+  "Max Threads" => "5",
   "Sleep Delay" => "1",
   "Trigger Query" => "'Selection Criterion'=null",
 })
+
+# import routines and force overwrite
+task_sdk.import_routines(true)
+
+# import categories
+task_sdk.import_categories
+
+# import trees and force overwrite
+task_sdk.import_trees(true)
+
+# import workflows
+import_workflows(core_path, space_sdk)
+
 
 # ------------------------------------------------------------------------------
 # service portal specific
