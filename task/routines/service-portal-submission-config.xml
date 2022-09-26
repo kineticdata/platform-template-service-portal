@@ -276,7 +276,7 @@ ommitted_fields = [
   'Requested By Display Name',
   'Requested For',
   'Requested For Display Name',
-  'Status'
+  'Status',
   'Observing Teams',
   'Observing Individuals'
 ]
