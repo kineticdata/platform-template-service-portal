@@ -10,8 +10,8 @@
     {
       "from": "start",
       "to": "routine_kinetic_queue_submission_config_v1_12",
-      "label": "",
-      "value": "",
+      "label": "Continue?",
+      "value": "!@form_attributes.has_key?('Custom Submission Workflow') || @form_attributes['Custom Submission Workflow'].nil? || !@form_attributes['Custom Submission Workflow'].include?('Submitted')",
       "type": "Complete"
     },
     {

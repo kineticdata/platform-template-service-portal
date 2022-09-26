@@ -10,8 +10,8 @@
     {
       "from": "start",
       "to": "routine_kinetic_solutions_service_portal_submission_config_v1_62",
-      "label": "",
-      "value": "",
+      "label": "Continue?",
+      "value": "!@form_attributes.has_key?('Custom Submission Workflow') || @form_attributes['Custom Submission Workflow'].nil? || !@form_attributes['Custom Submission Workflow'].include?('Submitted')",
       "type": "Complete"
     },
     {
