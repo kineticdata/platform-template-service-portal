@@ -153,7 +153,7 @@ most_significant_value(data, key, default_value)%&gt;</parameter>
 # Configure Key and Default Value
 #
 key = 'Task Assignee Team'
-default_value = 'default'
+default_value = 'Default'
 
 # Finds the most significant, cascaded, non-nil value for a given key.
 #
