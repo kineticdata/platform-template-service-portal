@@ -218,16 +218,6 @@ Dir["#{core_path}/**/*.ndjson"].sort.each do |filename|
   end
 end
 
-# update each bridge model mapping with the corresponding bridge in the agent platform component
-space_sdk.find_bridge_models.content["models"].each do |model|
-  exported_model = space_sdk.find_bridge_model(model["name"], { "export" => true }).content["model"]
-  exported_model["mappings"].each do |mapping|
-    mapping.delete("bridgeName")
-    mapping["bridgeSlug"] = "kinetic-core"
-    space_sdk.update_bridge_model_mapping(model["name"], mapping["name"], mapping)
-  end
-end
-
 # create any additional users that were specified
 (vars["data"]["users"] || []).each do |user|
   space_sdk.add_user(user)
