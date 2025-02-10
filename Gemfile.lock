@@ -1,13 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    kinetic_sdk (5.0.20)
-      mime-types (>= 3.3.1)
+    kinetic_sdk (5.0.29)
+      mime-types (>= 3.6.0)
       multipart-post (= 2.0.0)
       slugify (= 1.0.7)
-    mime-types (3.4.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2022.0105)
+    mime-types (3.6.0)
+      mime-types-data (~> 3.2025)
+    mime-types-data (3.2025.0204)
     multipart-post (2.0.0)
     slugify (1.0.7)
 
@@ -17,7 +17,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  kinetic_sdk (= 5.0.20)
+  kinetic_sdk (= 5.0.29)
 
 BUNDLED WITH
    1.17.3
