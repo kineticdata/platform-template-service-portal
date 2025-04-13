@@ -7,7 +7,7 @@
         <name>Notify on Run Error</name>
         <author></author>
         <notes></notes>
-        <lastID>19</lastID>
+        <lastID>20</lastID>
         <request>
             <task definition_id="system_start_v1" id="start" name="Start" x="42" y="-53">
                 <version>1</version>
@@ -34,18 +34,34 @@
                     <parameter dependsOnId="" dependsOnValue="" id="to" label="To (Email Address)" menu="" required="true" tooltip="The email address of the intended recipient.">&lt;%=@error['tree']['Owner Email']%&gt;</parameter>
                     <parameter dependsOnId="" dependsOnValue="" id="bcc" label="Bcc (Email Address)" menu="" required="false" tooltip="The email address of the intended recipient."></parameter>
                     <parameter dependsOnId="" dependsOnValue="" id="subject" label="Subject" menu="" required="false" tooltip="The subject of the email.">Kinetic Task Run Error (&lt;%= @results['Configure Space Slug']['output'] %&gt;)</parameter>
-                    <parameter dependsOnId="" dependsOnValue="" id="htmlbody" label="HTML Body" menu="" required="false" tooltip="HTML representing the body of a rich email.">&lt;h1&gt;Run Error in Space's task engine (&lt;%= @results['Configure Space Slug']['output'] %&gt;)&lt;/h1&gt;
-            &lt;h2&gt;Source Information&lt;/h2&gt;
-            &lt;ul&gt;
-            &lt;li&gt;Source: &lt;%=@error['tree']['Source']%&gt;&lt;/li&gt;
-            &lt;li&gt;Source Group: &lt;%=@error['tree']['Source Group']%&gt;&lt;/li&gt;
-            &lt;li&gt;Source Id: &lt;%=@error['run']['Source Id']%&gt;&lt;/li&gt;
-            &lt;li&gt;Tree Name: &lt;%=@error['tree']['Name']%&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="&lt;%=@results['Configure Web Server']['output']%&gt;/app/#/space/workflow/runs/errors/&lt;%=@error['run']['Id']%&gt;"&gt;Run #&lt;%=@error['run']['Id']%&gt;&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-            
-            &lt;h2&gt;Error Details&lt;/h2&gt;
-            &lt;pre&gt;&lt;%=@error['Text']%&gt;&lt;/pre&gt;</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="htmlbody" label="HTML Body" menu="" required="false" tooltip="HTML representing the body of a rich email.">&lt;%=
+href = "#{@results['Configure Web Server']['output']}/app/console/#/workflow/errors/builder"
+if @error['tree']['Type'] == "Global Routine"
+  href = "#{href}/routine" + URI.encode("/#{@error['tree']['Name']}")
+else
+  href = "#{href}/tree" + URI.encode("/#{@error['tree']['Source']} :: #{@error['tree']['Source Group']} :: #{@error['tree']['Name']}")
+  source = "&lt;li&gt;Source: #{@error['tree']['Source']}&lt;/li&gt;"
+  source_group = "&lt;li&gt;Source Group: #{@error['tree']['Source Group']}&lt;/li&gt;"
+  source_id = "&lt;li&gt;Source Id: #{@error['run']['Source Id']}&lt;/li&gt;"
+end
+href = "#{href}/runs/#{@error['run']['Id']}/errors/#{@error['Id']}"
+
+html = 
+  "&lt;h1&gt;Run Error in Space's task engine ( #{@results['Configure Space Slug']['output']} )&lt;/h1&gt;
+  &lt;h2&gt;Source Information&lt;/h2&gt;
+  &lt;ul&gt;
+    #{source if source}
+    #{source_group if source_group}
+    #{source_id if source_id}
+    &lt;li&gt;Tree Name: #{@error['tree']['Name']}&lt;/li&gt;
+    &lt;li&gt;&lt;a href= #{href}&gt;Run # #{@error['run']['Id']}&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h2&gt;Error Details&lt;/h2&gt;
+  &lt;pre&gt;#{@error['Text']}&lt;/pre&gt;"
+
+html
+%&gt;</parameter>
                     <parameter dependsOnId="" dependsOnValue="" id="textbody" label="Alternate (text) Body" menu="" required="false" tooltip="A plaintext message that will be displayed if the recipient can't display multipart HTML emails.">Run Error
             
             Source Information
@@ -56,8 +72,7 @@
              - Run Id: &lt;%=@error['run']['Id']%&gt;
             
             Error Details
-            &lt;%=@error['Text']%&gt;
-            </parameter>
+            &lt;%=@error['Text']%&gt;</parameter>
                 </parameters>
                 <messages></messages>
                 <dependents></dependents>
@@ -74,18 +89,34 @@
                     <parameter dependsOnId="" dependsOnValue="" id="to" label="To (Email Address)" menu="" required="true" tooltip="The email address of the intended recipient.">&lt;%=@results['Configure System Owner Email Address']['output']%&gt;</parameter>
                     <parameter dependsOnId="" dependsOnValue="" id="bcc" label="Bcc (Email Address)" menu="" required="false" tooltip="The email address of the intended recipient."></parameter>
                     <parameter dependsOnId="" dependsOnValue="" id="subject" label="Subject" menu="" required="false" tooltip="The subject of the email.">Kinetic Task Run Error (&lt;%= @results['Configure Space Slug']['output'] %&gt;)</parameter>
-                    <parameter dependsOnId="" dependsOnValue="" id="htmlbody" label="HTML Body" menu="" required="false" tooltip="HTML representing the body of a rich email.">&lt;h1&gt;Run Error in Space's task engine (&lt;%= @results['Configure Space Slug']['output'] %&gt;)&lt;/h1&gt;
-            &lt;h2&gt;Source Information&lt;/h2&gt;
-            &lt;ul&gt;
-            &lt;li&gt;Source: &lt;%=@error['tree']['Source']%&gt;&lt;/li&gt;
-            &lt;li&gt;Source Group: &lt;%=@error['tree']['Source Group']%&gt;&lt;/li&gt;
-            &lt;li&gt;Source Id: &lt;%=@error['run']['Source Id']%&gt;&lt;/li&gt;
-            &lt;li&gt;Tree Name: &lt;%=@error['tree']['Name']%&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="&lt;%=@results['Configure Web Server']['output']%&gt;/app/#/space/workflow/runs/errors/&lt;%=@error['run']['Id']%&gt;"&gt;Run #&lt;%=@error['run']['Id']%&gt;&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-            
-            &lt;h2&gt;Error Details&lt;/h2&gt;
-            &lt;pre&gt;&lt;%=@error['Text']%&gt;&lt;/pre&gt;</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="htmlbody" label="HTML Body" menu="" required="false" tooltip="HTML representing the body of a rich email.">&lt;%=
+href = "#{@results['Configure Web Server']['output']}/app/console/#/workflow/errors/builder"
+if @error['tree']['Type'] == "Global Routine"
+  href = "#{href}/routine" + URI.encode("/#{@error['tree']['Name']}")
+else
+  href = "#{href}/tree" + URI.encode("/#{@error['tree']['Source']} :: #{@error['tree']['Source Group']} :: #{@error['tree']['Name']}")
+  source = "&lt;li&gt;Source: #{@error['tree']['Source']}&lt;/li&gt;"
+  source_group = "&lt;li&gt;Source Group: #{@error['tree']['Source Group']}&lt;/li&gt;"
+  source_id = "&lt;li&gt;Source Id: #{@error['run']['Source Id']}&lt;/li&gt;"
+end
+href = "#{href}/runs/#{@error['run']['Id']}/errors/#{@error['Id']}"
+
+html = 
+  "&lt;h1&gt;Run Error in Space's task engine ( #{@results['Configure Space Slug']['output']} )&lt;/h1&gt;
+  &lt;h2&gt;Source Information&lt;/h2&gt;
+  &lt;ul&gt;
+    #{source if source}
+    #{source_group if source_group}
+    #{source_id if source_id}
+    &lt;li&gt;Tree Name: #{@error['tree']['Name']}&lt;/li&gt;
+    &lt;li&gt;&lt;a href= #{href}&gt;Run # #{@error['run']['Id']}&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h2&gt;Error Details&lt;/h2&gt;
+  &lt;pre&gt;#{@error['Text']}&lt;/pre&gt;"
+
+html
+%&gt;</parameter>
                     <parameter dependsOnId="" dependsOnValue="" id="textbody" label="Alternate (text) Body" menu="" required="false" tooltip="A plaintext message that will be displayed if the recipient can't display multipart HTML emails.">Run Error
             
             Source Information
@@ -96,8 +127,7 @@
              - Run Id: &lt;%=@error['run']['Id']%&gt;
             
             Error Details
-            &lt;%=@error['Text']%&gt;
-            </parameter>
+            &lt;%=@error['Text']%&gt;</parameter>
                 </parameters>
                 <messages></messages>
                 <dependents></dependents>
@@ -141,9 +171,7 @@
 space_data = JSON.parse(@results['Retrieve Space']['Response Body'])
 has_web_server_attribute = space_data['space']['attributesMap'].has_key?('Web Server Url')
 
-has_web_server_attribute ? space_data['space']['attributesMap']['Web Server Url'][0] : "https://#{@results['Configure Space Slug']['output']}.kinops.io"%&gt;
-
-</parameter>
+has_web_server_attribute ? space_data['space']['attributesMap']['Web Server Url'][0] : "https://#{@results['Configure Space Slug']['output']}.kinops.io"%&gt;</parameter>
                 </parameters>
                 <messages></messages>
                 <dependents>
