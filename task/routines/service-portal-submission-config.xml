@@ -321,11 +321,11 @@ data.each do |k, v|
     end
   # If the field is for a time
   elsif v =~ /^\d\d:\d\d$/
-  begin
-    result[k] = DateTime.parse(v).strftime('%r')
-  rescue
-    result[k] = v
-  end
+    begin
+      result[k] = DateTime.parse(v).strftime('%r')
+    rescue
+      result[k] = v
+    end
   # If the field is a normal field
   else
     result[k] = v
